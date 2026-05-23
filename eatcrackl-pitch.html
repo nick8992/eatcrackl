@@ -635,10 +635,24 @@
   </div>
 </section>
 
+<!-- RODEO-INSPIRED SYSTEM -->
+<section class="directions" style="padding-top: 0;">
+  <div class="wrap">
+    <div class="label">08 · RODEO-INSPIRED SYSTEM</div>
+    <div class="head">
+      <h2>The other<br/>direction.</h2>
+      <p class="intro">
+        Inspired by Rodeo Snacks' design DNA — cream upper portion + colored scalloped blob, mixed serif/sans typography, playful badges. The first 5 lean into the floral/scalloped energy; the last 5 strip the flowers down to cleaner geometric dividers.
+      </p>
+    </div>
+    <div class="v-grid" id="variations-rodeo-grid"></div>
+  </div>
+</section>
+
 <!-- NUMBERS -->
 <section class="numbers-section">
   <div class="wrap">
-    <div class="label">08 · THE NUMBERS</div>
+    <div class="label">09 · THE NUMBERS</div>
     <div class="numbers-grid">
       <div class="number-card">
         <div class="fred big">7G</div>
@@ -731,6 +745,35 @@
       </div>
     `;
     vGrid.appendChild(card);
+  });
+
+  // ---------- Rodeo-inspired variations ----------
+  const VARIATIONS_RODEO = [
+    { code: 'R · 01', name: 'Faithful',            tag: "Cream + soft yellow scalloped blob, floral dividers, daisy-shaped protein badge. Direct Rodeo translation.", img: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_184704_c62d360c-8b3b-4b7d-9b14-95fc472b164a.png' },
+    { code: 'R · 02', name: 'Flavor-Tinted Blob',  tag: "Bottom blob takes the flavor color instead of yellow. Strongest line clarity from across an aisle.",          img: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_184717_a5b1ace3-a769-4274-93e2-d453afaf3b7c.png' },
+    { code: 'R · 03', name: 'Petal Maximalist',    tag: "Pushes the scallop/petal motif harder. Multiple daisy badges scattered. Farmers-market energy.",                img: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_184728_c3c8c93a-21ea-4142-9490-ae8fec4e6bb4.png' },
+    { code: 'R · 04', name: 'Heritage Rustic',     tag: "Earthier desaturated palette with kraft-paper texture. Gift-able, dinner-party premium.",                       img: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_184741_4ede1373-657f-4950-ae73-87089de7f588.png' },
+    { code: 'R · 05', name: 'Photo-Dominant',      tag: "Design recedes, chickpea photography dominates. Each flavor visually coated to match.",                          img: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_184753_e3d10b8c-a5e7-4ef9-a52e-b22277617e7f.png' },
+    { code: 'R · 06', name: 'Minimal Geometric',   tag: "Flowers swapped for solid dot (·) dividers. Circular protein badge. Cleanest evolution of the original.",       img: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_185031_38523557-b529-4483-b39a-1a33edb5f0c9.png' },
+    { code: 'R · 07', name: 'Modernist',           tag: "Smooth curved color zone (no scallops). Pipe (|) dividers. Rectangular protein badge. Most editorial.",          img: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_185043_d48e1fe5-0f15-48ac-bbc3-4659556b3518.png' },
+    { code: 'R · 08', name: 'Asterisk Editorial',  tag: "Cream-heavy 75/25 layout. Asterisk (*) dividers. Oval outlined badge. Most Graza-adjacent.",                     img: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_185055_a6a97f80-f672-4e8f-9ea2-4922caa0edcb.png' },
+    { code: 'R · 09', name: 'Bar-Stripe',          tag: "Clean horizontal flavor stripe through the middle. Bullet (•) dividers. Most architectural / system-driven.",   img: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_185107_db4225d5-e33c-4044-abba-2b53c32dc918.png' },
+    { code: 'R · 10', name: 'Sticker Pop',         tag: "Cream + smooth arc. Pill-shaped callout bar with slash separators. Hexagonal sticker badge. Boldest.",            img: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_185120_0cca4a66-098a-41c7-a446-8a07cc34c21e.png' }
+  ];
+
+  const rGrid = document.getElementById('variations-rodeo-grid');
+  VARIATIONS_RODEO.forEach(v => {
+    const card = document.createElement('div');
+    card.className = 'v-card';
+    card.innerHTML = `
+      <div class="v-frame"><img src="${v.img}" alt="${v.name}" loading="lazy" /></div>
+      <div class="v-meta">
+        <div class="v-code">${v.code}</div>
+        <div class="v-name fred">${v.name}</div>
+        <div class="v-tag">${v.tag}</div>
+      </div>
+    `;
+    rGrid.appendChild(card);
   });
 
   // ---------- SVG bag rendering ----------
