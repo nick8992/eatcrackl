@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+<meta name="theme-color" content="#FAF5EC" />
+<title>Roasted Chickpeas — Crackl.</title>
+<meta name="description" content="Crackl roasted chickpeas. Three flavors, two sizes. 7g protein, 6g fiber, zero seed oils." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+<style>
+  /* ============================================================
+     CRACKL. — Product page (chickpeas)
+     Shares design language with index.html
+     ============================================================ */
+  :root {
+    --cream: #FAF5EC;
+    --cream-2: #F2EBDC;
+    --char: #1F1A17;
+    --char-soft: rgba(31, 26, 23, 0.72);
+    --char-mute: rgba(31, 26, 23, 0.5);
+    --char-faint: rgba(31, 26, 23, 0.14);
+    --yellow: #F5C842;
+    --yellow-deep: #E5B82C;
+    --yellow-light: #FBE48A;
+    --bbq: #C84B1F;
+    --bbq-deep: #9A3914;
+    --spicy: #DC3545;
+    --spicy-deep: #A8242F;
+    --sea: #3F8AAB;
+    --sea-deep: #2A627C;
+    --flavor: var(--bbq);
+    --flavor-deep: var(--bbq-deep);
+
+    --max: 1280px;
+    --pad: clamp(20px, 5vw, 64px);
+    --rad: 14px;
+    --rad-pill: 999px;
+
+    --ease: cubic-bezier(.2, .8, .2, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--cream);
+    color: var(--char);
+    font-family: 'Hanken Grotesk', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); width: 100%; }
+  .fred { font-family: 'Fredoka', sans-serif; font-weight: 700; letter-spacing: -1.5px; }
+  .mono { font-family: 'DM Mono', monospace; }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+    color: var(--char-soft);
+  }
+  .eyebrow.cream { color: rgba(250, 245, 236, 0.65); }
+
+  /* ============================================================
+     NAV (same as homepage)
+     ============================================================ */
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250, 245, 236, 0.94);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  header.nav.scrolled { border-bottom-color: var(--char-faint); }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 0;
+  }
+  .logo {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: 26px; letter-spacing: -1px;
+  }
+  .logo .dot { color: var(--flavor); transition: color 0.5s var(--ease); }
+  nav.links { display: flex; gap: 36px; align-items: center; }
+  nav.links a {
+    font-family: 'Hanken Grotesk', sans-serif; font-weight: 500;
+    font-size: 14px; position: relative;
+  }
+  nav.links a::after {
+    content: ''; position: absolute; left: 0; bottom: -4px;
+    width: 0; height: 1.5px; background: var(--flavor);
+    transition: width 0.25s var(--ease);
+  }
+  nav.links a:hover::after,
+  nav.links a.active::after { width: 100%; }
+
+  .cart-btn {
+    position: relative; width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--char); color: var(--cream);
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: transform 0.2s var(--ease), background 0.2s var(--ease);
+  }
+  .cart-btn:hover { transform: scale(1.08); background: var(--flavor); }
+  .cart-btn .cart-count {
+    position: absolute; top: -4px; right: -4px;
+    min-width: 18px; height: 18px; padding: 0 5px;
+    border-radius: 50%; background: var(--flavor); color: var(--cream);
+    font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 500;
+    display: none; align-items: center; justify-content: center;
+  }
+  .cart-btn .cart-count.show { display: flex; }
+  @media (max-width: 720px) {
+    nav.links a { display: none; }
+    nav.links a.shop-only { display: inline; font-weight: 600; }
+  }
+
+  /* ============================================================
+     BREADCRUMB
+     ============================================================ */
+  .breadcrumb {
+    padding: 24px 0 0;
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: 1.6px; color: var(--char-mute);
+  }
+  .breadcrumb a { color: var(--char-mute); transition: color 0.2s var(--ease); }
+  .breadcrumb a:hover { color: var(--flavor); }
+  .breadcrumb .sep { margin: 0 8px; opacity: 0.5; }
+  .breadcrumb .current { color: var(--char); }
+
+  /* ============================================================
+     PDP
+     ============================================================ */
+  .pdp {
+    padding: 32px 0 80px;
+  }
+  .pdp-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: clamp(36px, 6vw, 72px);
+    align-items: start;
+  }
+  @media (max-width: 980px) {
+    .pdp-grid { grid-template-columns: 1fr; }
+  }
+
+  /* gallery */
+  .gallery { position: sticky; top: 96px; }
+  @media (max-width: 980px) { .gallery { position: static; } }
+
+  .gallery-main {
+    background: var(--cream-2);
+    border-radius: 22px;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 0 0 1px var(--char-faint);
+  }
+  .gallery-main img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: opacity 0.25s var(--ease), transform 0.6s var(--ease);
+  }
+  .gallery-main img.fade-out { opacity: 0; }
+  .gallery-main .selected-flavor-pill {
+    position: absolute; top: 22px; left: 22px;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: var(--cream);
+    box-shadow: inset 0 0 0 1.5px var(--char), 0 4px 12px rgba(31,26,23,0.1);
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: 1.4px; color: var(--char);
+  }
+  .gallery-main .selected-flavor-pill::before {
+    content: ''; width: 10px; height: 10px;
+    border-radius: 50%; background: var(--flavor);
+    transition: background 0.5s var(--ease);
+  }
+  .gallery-main .hex-badge {
+    position: absolute; bottom: 22px; right: 22px;
+    width: 84px; height: 96px;
+    background: var(--cream);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    box-shadow: 0 8px 24px rgba(31,26,23,0.15);
+    transform: rotate(-6deg);
+  }
+  .gallery-main .hex-badge .num {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: 24px; line-height: 1; color: var(--char);
+  }
+  .gallery-main .hex-badge .lbl {
+    font-family: 'DM Mono', monospace; font-size: 8px;
+    letter-spacing: 1.2px; color: var(--char-soft);
+    margin-top: 4px;
+  }
+
+  .gallery-thumbs {
+    display: flex; gap: 10px; margin-top: 14px;
+  }
+  .thumb {
+    flex: 1;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--cream-2);
+    box-shadow: inset 0 0 0 1px var(--char-faint);
+    transition: box-shadow 0.2s var(--ease), transform 0.2s var(--ease);
+    cursor: pointer; position: relative;
+  }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .thumb.active { box-shadow: inset 0 0 0 2px var(--char); }
+  .thumb:hover { transform: translateY(-2px); }
+  .thumb .lbl {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 4px;
+    font-family: 'DM Mono', monospace; font-size: 9px;
+    letter-spacing: 1px; color: var(--cream);
+    background: linear-gradient(transparent, rgba(31,26,23,0.7));
+    text-align: center;
+  }
+
+  /* info column */
+  .info-block { padding-top: 8px; }
+  .rating-row {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 14px;
+  }
+  .stars { color: var(--flavor); letter-spacing: 2px; font-size: 16px; transition: color 0.5s var(--ease); }
+  .rating-row .count {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    color: var(--char-mute); letter-spacing: 1px;
+  }
+  .pdp-title {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: clamp(40px, 6vw, 64px);
+    line-height: 0.95; letter-spacing: -2.5px;
+    color: var(--char);
+    margin: 8px 0 12px;
+  }
+  .pdp-title .ital {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-weight: 500; color: var(--flavor); transition: color 0.5s var(--ease);
+  }
+  .pdp-sub {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-size: 19px; color: var(--char-soft);
+    margin-bottom: 26px;
+  }
+  .price-row {
+    display: flex; align-items: baseline; gap: 12px;
+    margin-bottom: 28px;
+  }
+  .price {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: 36px; letter-spacing: -1.5px;
+    color: var(--char);
+  }
+  .price-old {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 16px; color: var(--char-mute);
+    text-decoration: line-through;
+  }
+  .price-tag {
+    padding: 4px 10px;
+    background: var(--yellow);
+    border-radius: 999px;
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: 1.4px; color: var(--char);
+    font-weight: 500;
+  }
+
+  .option-group { margin-bottom: 24px; }
+  .option-label {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 12px;
+  }
+  .option-label .label {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    letter-spacing: 1.6px; color: var(--char-mute);
+    text-transform: uppercase;
+  }
+  .option-label .value {
+    font-family: 'Hanken Grotesk', sans-serif; font-weight: 600;
+    font-size: 14px; color: var(--char);
+  }
+
+  .flavor-swatches { display: flex; gap: 10px; }
+  .swatch {
+    flex: 1;
+    padding: 14px 12px;
+    border-radius: 14px;
+    background: var(--cream-2);
+    box-shadow: inset 0 0 0 1.5px var(--char-faint);
+    text-align: center;
+    transition: all 0.2s var(--ease);
+    position: relative;
+  }
+  .swatch:hover { box-shadow: inset 0 0 0 1.5px var(--char-mute); transform: translateY(-2px); }
+  .swatch.active {
+    background: var(--cream);
+    box-shadow: inset 0 0 0 2px var(--char);
+  }
+  .swatch .dot-color {
+    width: 28px; height: 28px; border-radius: 50%;
+    margin: 0 auto 8px;
+    box-shadow: inset 0 0 0 1px rgba(31,26,23,0.18);
+  }
+  .swatch.bbq .dot-color { background: var(--bbq); }
+  .swatch.spicy .dot-color { background: var(--spicy); }
+  .swatch.sea .dot-color { background: var(--sea); }
+  .swatch .name {
+    font-family: 'Hanken Grotesk', sans-serif; font-weight: 600;
+    font-size: 13px; color: var(--char);
+  }
+  .swatch .desc {
+    font-family: 'DM Mono', monospace; font-size: 9px;
+    letter-spacing: 1px; color: var(--char-mute);
+    margin-top: 4px; text-transform: uppercase;
+  }
+
+  .size-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .size-opt {
+    padding: 16px 14px;
+    border-radius: 14px;
+    background: var(--cream-2);
+    box-shadow: inset 0 0 0 1.5px var(--char-faint);
+    text-align: left;
+    transition: all 0.2s var(--ease);
+    position: relative;
+  }
+  .size-opt:hover { box-shadow: inset 0 0 0 1.5px var(--char-mute); }
+  .size-opt.active {
+    background: var(--cream);
+    box-shadow: inset 0 0 0 2px var(--char);
+  }
+  .size-opt .top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 4px;
+  }
+  .size-opt .top .size {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: 18px; letter-spacing: -0.5px; color: var(--char);
+  }
+  .size-opt .top .check {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--char);
+    color: var(--cream);
+    font-size: 11px;
+    display: none; align-items: center; justify-content: center;
+  }
+  .size-opt.active .top .check { display: flex; }
+  .size-opt .desc {
+    font-family: 'DM Mono', monospace; font-size: 9px;
+    letter-spacing: 1px; color: var(--char-mute);
+    text-transform: uppercase;
+  }
+  .size-opt .price-line {
+    font-family: 'Hanken Grotesk', sans-serif; font-weight: 600;
+    font-size: 14px; color: var(--char); margin-top: 8px;
+  }
+
+  .qty-row {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 18px;
+  }
+  .qty-stepper {
+    display: inline-flex; align-items: center;
+    background: var(--cream-2);
+    border-radius: 999px;
+    padding: 4px;
+    box-shadow: inset 0 0 0 1px var(--char-faint);
+  }
+  .qty-stepper button {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--cream);
+    color: var(--char);
+    font-size: 16px; line-height: 1;
+    transition: background 0.15s var(--ease);
+  }
+  .qty-stepper button:hover { background: var(--char); color: var(--cream); }
+  .qty-stepper .qty-val {
+    min-width: 36px;
+    text-align: center;
+    font-family: 'Hanken Grotesk', sans-serif; font-weight: 600;
+    font-size: 16px;
+  }
+
+  .atc-btn {
+    width: 100%;
+    padding: 22px 28px;
+    border-radius: 16px;
+    background: var(--char);
+    color: var(--cream);
+    font-family: 'Fredoka', sans-serif; font-weight: 600;
+    font-size: 16px; letter-spacing: 0.3px;
+    transition: all 0.2s var(--ease);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .atc-btn:hover {
+    background: var(--flavor); transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(31,26,23,0.25);
+  }
+  .atc-btn .price-display {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  .subscribe-block {
+    margin-top: 14px;
+    background: var(--cream-2);
+    border-radius: 14px;
+    padding: 16px 18px;
+    display: flex; align-items: flex-start; gap: 14px;
+    border: 1.5px dashed var(--char-faint);
+    transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+    cursor: pointer;
+  }
+  .subscribe-block.active {
+    background: var(--cream);
+    border-color: var(--char);
+    border-style: solid;
+  }
+  .sub-check {
+    width: 22px; height: 22px; flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--cream);
+    box-shadow: inset 0 0 0 1.5px var(--char-mute);
+    transition: all 0.2s var(--ease);
+    position: relative;
+    margin-top: 2px;
+  }
+  .subscribe-block.active .sub-check {
+    background: var(--char);
+    box-shadow: inset 0 0 0 1.5px var(--char);
+  }
+  .subscribe-block.active .sub-check::after {
+    content: '✓'; color: var(--cream);
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: bold;
+  }
+  .sub-content { flex: 1; }
+  .sub-content .top-line {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 4px;
+  }
+  .sub-content .label {
+    font-family: 'Hanken Grotesk', sans-serif; font-weight: 600;
+    font-size: 14px; color: var(--char);
+  }
+  .sub-content .save {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: 1.4px;
+    background: var(--flavor); color: var(--cream);
+    padding: 3px 8px; border-radius: 999px;
+    transition: background 0.5s var(--ease);
+  }
+  .sub-content .desc {
+    font-size: 12px; color: var(--char-soft); line-height: 1.45;
+  }
+
+  .quick-feature-row {
+    margin-top: 28px;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 18px 0;
+    border-top: 1px solid var(--char-faint);
+    border-bottom: 1px solid var(--char-faint);
+  }
+  .qf {
+    text-align: center;
+    font-family: 'DM Mono', monospace; font-size: 9px;
+    letter-spacing: 1.2px; color: var(--char-soft);
+  }
+  .qf .icon {
+    display: block;
+    width: 28px; height: 28px;
+    margin: 0 auto 6px;
+    border-radius: 50%;
+    background: var(--flavor); color: var(--cream);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: bold;
+    transition: background 0.5s var(--ease);
+  }
+  @media (max-width: 520px) {
+    .quick-feature-row { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ============================================================
+     MACROS BAR (full-width yellow)
+     ============================================================ */
+  .macros-bar {
+    background: var(--yellow);
+    padding: 64px 0;
+    position: relative; overflow: hidden;
+  }
+  .macros-bar::before {
+    content: ''; position: absolute; top: -1px; left: 0; right: 0;
+    height: 40px; background: var(--cream);
+    clip-path: ellipse(60% 100% at 50% 0%);
+  }
+  .macros-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 24px; align-items: center;
+    text-align: center;
+  }
+  @media (max-width: 720px) { .macros-grid { grid-template-columns: repeat(2, 1fr); } }
+  .macro-cell .num {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: clamp(40px, 6vw, 64px);
+    letter-spacing: -2px; line-height: 1;
+    color: var(--char);
+  }
+  .macro-cell .num .small { font-size: 28px; color: var(--char-soft); }
+  .macro-cell .lbl {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    letter-spacing: 1.6px; color: var(--char-soft);
+    margin-top: 8px; text-transform: uppercase;
+  }
+
+  /* ============================================================
+     FEATURES (3 columns)
+     ============================================================ */
+  .features {
+    padding: clamp(72px, 11vw, 120px) 0;
+  }
+  .features-head {
+    text-align: center; margin-bottom: 56px;
+  }
+  .features-head h2 {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: clamp(40px, 7vw, 76px);
+    letter-spacing: -3px; line-height: 0.95;
+    margin: 14px 0;
+  }
+  .features-head h2 .ital {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+  }
+  .features-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 880px) { .features-grid { grid-template-columns: 1fr; } }
+
+  .feature-card {
+    background: var(--cream-2);
+    border-radius: 22px;
+    padding: 36px 28px 32px;
+    transition: transform 0.25s var(--ease);
+  }
+  .feature-card:hover { transform: translateY(-4px); }
+  .feature-card .ico {
+    width: 50px; height: 50px;
+    border-radius: 14px;
+    background: var(--flavor); color: var(--cream);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 22px;
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: 22px;
+    transition: background 0.5s var(--ease);
+  }
+  .feature-card h3 {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: 26px; letter-spacing: -1px; line-height: 1.05;
+    margin-bottom: 12px;
+  }
+  .feature-card p {
+    color: var(--char-soft); font-size: 15px; line-height: 1.55;
+  }
+
+  /* ============================================================
+     INGREDIENTS / NUTRITION
+     ============================================================ */
+  .ingredients {
+    padding: 0 0 clamp(72px, 11vw, 120px);
+  }
+  .ingredients-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 880px) { .ingredients-grid { grid-template-columns: 1fr; } }
+
+  .ing-block {
+    background: var(--cream-2);
+    border-radius: 22px;
+    padding: 32px 28px;
+  }
+  .ing-block h3 {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: 26px; letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+  .ing-block .list {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 15px; line-height: 1.65;
+    color: var(--char-soft);
+  }
+  .ing-block .list strong { color: var(--char); font-weight: 600; }
+  .nutrition-table {
+    width: 100%; border-collapse: collapse;
+    font-family: 'Hanken Grotesk', sans-serif; font-size: 14px;
+  }
+  .nutrition-table tr {
+    border-bottom: 1px solid var(--char-faint);
+  }
+  .nutrition-table tr:last-child { border-bottom: none; }
+  .nutrition-table td {
+    padding: 10px 0;
+    color: var(--char-soft);
+  }
+  .nutrition-table td:last-child {
+    text-align: right;
+    font-family: 'DM Mono', monospace; font-size: 13px;
+    color: var(--char); font-weight: 500;
+  }
+  .nutrition-table .total td {
+    font-weight: 600; color: var(--char);
+  }
+
+  /* ============================================================
+     REVIEWS
+     ============================================================ */
+  .reviews {
+    padding: clamp(72px, 11vw, 120px) 0;
+    background: var(--cream-2);
+  }
+  .reviews-head {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    flex-wrap: wrap; gap: 24px;
+    margin-bottom: 48px;
+  }
+  .reviews-head h2 {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: clamp(36px, 6vw, 60px);
+    letter-spacing: -2.5px; line-height: 1;
+  }
+  .reviews-head .agg {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .reviews-head .agg .big-rating {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: 42px; letter-spacing: -1.5px; line-height: 1;
+  }
+  .reviews-head .agg .agg-r {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    color: var(--char-soft); letter-spacing: 1.4px;
+  }
+
+  .reviews-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 880px) { .reviews-grid { grid-template-columns: 1fr; } }
+
+  .review-card {
+    background: var(--cream);
+    border-radius: 18px;
+    padding: 28px 26px;
+    position: relative;
+  }
+  .review-card .stars-row {
+    font-size: 16px; letter-spacing: 2px;
+    color: var(--flavor); margin-bottom: 14px;
+    transition: color 0.5s var(--ease);
+  }
+  .review-card .quote {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-size: 18px; line-height: 1.45;
+    color: var(--char); margin-bottom: 18px;
+  }
+  .review-card .author {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    letter-spacing: 1.2px; color: var(--char-mute);
+  }
+  .review-card .author .pip {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--flavor);
+    transition: background 0.5s var(--ease);
+  }
+  .review-card .verified {
+    font-family: 'DM Mono', monospace; font-size: 9px;
+    letter-spacing: 1.2px;
+    margin-left: auto;
+    padding: 2px 8px; border-radius: 999px;
+    background: var(--char); color: var(--cream);
+  }
+
+  /* ============================================================
+     CROSS-SELL
+     ============================================================ */
+  .cross-sell {
+    padding: clamp(72px, 11vw, 120px) 0;
+  }
+  .cross-sell h2 {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: clamp(40px, 7vw, 72px);
+    letter-spacing: -2.5px; line-height: 0.95;
+    margin: 12px 0 40px;
+  }
+  .cross-sell h2 .ital {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+  }
+  .cross-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 880px) { .cross-grid { grid-template-columns: 1fr; } }
+
+  .cross-card {
+    background: var(--cream-2);
+    border-radius: 18px;
+    padding: 22px;
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  }
+  .cross-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(31,26,23,0.12);
+  }
+  .cross-card .img-area {
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    background: var(--cream);
+    overflow: hidden;
+    margin-bottom: 16px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: inset 0 0 0 1px var(--char-faint);
+  }
+  .cross-card .img-area .swatch-big {
+    width: 56%; height: 56%; border-radius: 50%;
+  }
+  .cross-card.bbq .swatch-big { background: var(--bbq); }
+  .cross-card.spicy .swatch-big { background: var(--spicy); }
+  .cross-card.sea .swatch-big { background: var(--sea); }
+  .cross-card .name {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: 22px; letter-spacing: -0.8px;
+  }
+  .cross-card .desc {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-size: 14px; color: var(--char-soft);
+    margin-top: 4px;
+  }
+  .cross-card .price-row {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 16px;
+  }
+  .cross-card .price-row .p {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: 18px;
+  }
+  .cross-card .price-row .add {
+    font-family: 'Hanken Grotesk', sans-serif; font-weight: 600;
+    font-size: 12px; letter-spacing: 0.4px;
+    padding: 8px 14px;
+    background: var(--char); color: var(--cream);
+    border-radius: 999px;
+    transition: background 0.2s var(--ease);
+  }
+  .cross-card .price-row .add:hover { background: var(--flavor); }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  footer {
+    background: var(--cream);
+    border-top: 1px solid var(--char-faint);
+    padding: 80px 0 36px;
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px; margin-bottom: 60px;
+  }
+  @media (max-width: 720px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  .footer-col h4 {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: 1.8px; text-transform: uppercase;
+    color: var(--char-mute); margin-bottom: 16px;
+  }
+  .footer-col a {
+    display: block; font-size: 14px; line-height: 2;
+    color: var(--char-soft);
+    transition: color 0.2s var(--ease);
+  }
+  .footer-col a:hover { color: var(--flavor); }
+  .footer-brand .big-mark {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: 48px; letter-spacing: -2px; margin-bottom: 12px;
+  }
+  .footer-brand .big-mark .dot { color: var(--flavor); transition: color 0.5s var(--ease); }
+  .footer-brand p {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-size: 17px; color: var(--char-soft); max-width: 280px;
+  }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+    padding-top: 28px;
+    border-top: 1px solid var(--char-faint);
+  }
+  .footer-bottom .micro {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: 1.4px; color: var(--char-mute);
+  }
+
+  /* ============================================================
+     TOAST
+     ============================================================ */
+  .toast {
+    position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(120%);
+    background: var(--char); color: var(--cream);
+    padding: 14px 24px; border-radius: 999px;
+    font-family: 'Hanken Grotesk', sans-serif; font-weight: 500;
+    font-size: 14px;
+    box-shadow: 0 14px 30px rgba(31, 26, 23, 0.3);
+    z-index: 100;
+    opacity: 0;
+    transition: transform 0.4s var(--ease), opacity 0.3s var(--ease);
+    display: inline-flex; align-items: center; gap: 10px;
+    pointer-events: none;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+  .toast .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); }
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo">Crackl<span class="dot">.</span></a>
+    <nav class="links">
+      <a href="chickpeas.html" class="shop-only active">Shop</a>
+      <a href="index.html#why">Story</a>
+      <a href="index.html#flavors">Flavors</a>
+      <a href="index.html#travel">Travel</a>
+    </nav>
+    <button class="cart-btn" onclick="toast('Cart launching with the brand. Stay tuned.')" aria-label="Cart">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+        <path d="M3 6h18"></path>
+        <path d="M16 10a4 4 0 0 1-8 0"></path>
+      </svg>
+      <span class="cart-count" id="cart-count">0</span>
+    </button>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="wrap breadcrumb">
+  <a href="index.html">HOME</a>
+  <span class="sep">/</span>
+  <a href="chickpeas.html">SHOP</a>
+  <span class="sep">/</span>
+  <span class="current">ROASTED CHICKPEAS</span>
+</div>
+
+<!-- PDP -->
+<section class="pdp">
+  <div class="wrap pdp-grid">
+
+    <!-- GALLERY -->
+    <div class="gallery">
+      <div class="gallery-main">
+        <div class="selected-flavor-pill" id="selected-pill">BBQ · 5OZ</div>
+        <div class="hex-badge">
+          <div class="num">7G</div>
+          <div class="lbl">PROTEIN</div>
+        </div>
+        <img id="main-img"
+             src="https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_185120_0cca4a66-098a-41c7-a446-8a07cc34c21e.png"
+             alt="Crackl. Roasted Chickpeas — three flavors" />
+      </div>
+      <div class="gallery-thumbs">
+        <div class="thumb active" data-view="5oz">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_185120_0cca4a66-098a-41c7-a446-8a07cc34c21e.png" alt="5oz pack"/>
+          <div class="lbl">5OZ HERO</div>
+        </div>
+        <div class="thumb" data-view="1oz">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_194554_b4500e55-0042-44e5-a216-2ebea26d0caa.png" alt="1oz travel pack"/>
+          <div class="lbl">1OZ TRAVEL</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INFO -->
+    <div class="info-block">
+      <div class="rating-row">
+        <span class="stars">★★★★★</span>
+        <span class="count">4.9 · 247 REVIEWS</span>
+      </div>
+      <div class="eyebrow">◯ THE FLAGSHIP ◯</div>
+      <h1 class="pdp-title">Roasted <span class="ital">Chickpeas.</span></h1>
+      <p class="pdp-sub">7g of plant protein, 6g of fiber, zero seed oils. Made in California. Built to crunch.</p>
+
+      <div class="price-row">
+        <span class="price" id="price-display">$6.50</span>
+        <span class="price-old" id="price-old" style="display:none">$7.50</span>
+        <span class="price-tag" id="price-tag" style="display:none">SAVE 13%</span>
+      </div>
+
+      <!-- FLAVOR -->
+      <div class="option-group">
+        <div class="option-label">
+          <span class="label">FLAVOR</span>
+          <span class="value" id="flavor-name">BBQ</span>
+        </div>
+        <div class="flavor-swatches">
+          <button class="swatch bbq active" data-flavor="bbq">
+            <div class="dot-color"></div>
+            <div class="name">BBQ</div>
+            <div class="desc">Smoke. Sweet.</div>
+          </button>
+          <button class="swatch spicy" data-flavor="spicy">
+            <div class="dot-color"></div>
+            <div class="name">Spicy</div>
+            <div class="desc">Heat. Bite.</div>
+          </button>
+          <button class="swatch sea" data-flavor="sea">
+            <div class="dot-color"></div>
+            <div class="name">Sea Salt</div>
+            <div class="desc">Clean. Crisp.</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- SIZE -->
+      <div class="option-group">
+        <div class="option-label">
+          <span class="label">SIZE</span>
+          <span class="value" id="size-label">5oz Hero Bag</span>
+        </div>
+        <div class="size-options">
+          <button class="size-opt active" data-size="5oz" data-price="6.50">
+            <div class="top">
+              <span class="size">5 OZ</span>
+              <span class="check">✓</span>
+            </div>
+            <div class="desc">HERO BAG · ~5 SERVINGS</div>
+            <div class="price-line">$6.50</div>
+          </button>
+          <button class="size-opt" data-size="1oz" data-price="2.25">
+            <div class="top">
+              <span class="size">1 OZ</span>
+              <span class="check">✓</span>
+            </div>
+            <div class="desc">TRAVEL PACK · ON-THE-GO</div>
+            <div class="price-line">$2.25</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- QUANTITY -->
+      <div class="option-group">
+        <div class="option-label">
+          <span class="label">QUANTITY</span>
+        </div>
+        <div class="qty-row">
+          <div class="qty-stepper">
+            <button onclick="qty(-1)" aria-label="Decrease">−</button>
+            <span class="qty-val" id="qty">1</span>
+            <button onclick="qty(1)" aria-label="Increase">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADD TO CART -->
+      <button class="atc-btn" onclick="addToCart()">
+        <span>ADD TO CART</span>
+        <span class="price-display" id="atc-price">$6.50</span>
+      </button>
+
+      <!-- SUBSCRIBE -->
+      <div class="subscribe-block" id="sub-block" onclick="toggleSub()">
+        <div class="sub-check"></div>
+        <div class="sub-content">
+          <div class="top-line">
+            <span class="label">Subscribe & save</span>
+            <span class="save">−20%</span>
+          </div>
+          <div class="desc">Get a fresh bag every month. Cancel anytime. Free shipping on every subscription.</div>
+        </div>
+      </div>
+
+      <!-- QUICK FEATURES -->
+      <div class="quick-feature-row">
+        <div class="qf"><span class="icon">✓</span>USDA<br/>ORGANIC</div>
+        <div class="qf"><span class="icon">✓</span>VEGAN</div>
+        <div class="qf"><span class="icon">✓</span>GLUTEN<br/>FREE</div>
+        <div class="qf"><span class="icon">✓</span>NON<br/>GMO</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MACROS BAR -->
+<section class="macros-bar">
+  <div class="wrap macros-grid">
+    <div class="macro-cell">
+      <div class="num">7<span class="small">g</span></div>
+      <div class="lbl">PLANT PROTEIN</div>
+    </div>
+    <div class="macro-cell">
+      <div class="num">6<span class="small">g</span></div>
+      <div class="lbl">FIBER</div>
+    </div>
+    <div class="macro-cell">
+      <div class="num">0<span class="small">ml</span></div>
+      <div class="lbl">SEED OILS</div>
+    </div>
+    <div class="macro-cell">
+      <div class="num">130</div>
+      <div class="lbl">CALORIES</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="wrap">
+    <div class="features-head">
+      <div class="eyebrow">◯ THE WHOLE STORY ◯</div>
+      <h2>Real ingredients.<br/><span class="ital">Honest snacks.</span></h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="ico">1</div>
+        <h3>California Chickpeas</h3>
+        <p>Organic Kabuli garbanzos grown in the San Joaquin and Sacramento Valleys, harvested at peak size and roasted within weeks.</p>
+      </div>
+      <div class="feature-card">
+        <div class="ico">2</div>
+        <h3>Avocado Oil. Only.</h3>
+        <p>We skip the seed oils. No canola, no sunflower, no soy. Roasted in cold-pressed avocado oil that costs us more and tastes better.</p>
+      </div>
+      <div class="feature-card">
+        <div class="ico">3</div>
+        <h3>Clean Seasonings</h3>
+        <p>No "natural flavors" handwave. Real paprika, real chili, real flaky sea salt. The ingredient list reads like a recipe, not a chemistry exam.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INGREDIENTS + NUTRITION -->
+<section class="ingredients">
+  <div class="wrap ingredients-grid">
+    <div class="ing-block">
+      <h3>What's in it</h3>
+      <p class="list" id="ing-list">
+        <strong>Organic chickpeas</strong>, organic cold-pressed avocado oil,
+        <strong>organic tomato powder</strong>, organic smoked paprika, organic onion powder,
+        organic garlic powder, organic brown sugar, organic apple cider vinegar powder, sea salt.
+      </p>
+      <p class="list" style="margin-top:16px"><strong>Contains:</strong> No common allergens. Made in a facility free from peanuts, tree nuts, dairy, soy, gluten, and eggs.</p>
+    </div>
+
+    <div class="ing-block">
+      <h3>Nutrition · per 1oz serving</h3>
+      <table class="nutrition-table">
+        <tr class="total"><td>Calories</td><td>130</td></tr>
+        <tr><td>Total Fat</td><td>4g</td></tr>
+        <tr><td>&nbsp;&nbsp;Saturated Fat</td><td>0.5g</td></tr>
+        <tr><td>Sodium</td><td>180mg</td></tr>
+        <tr><td>Total Carbs</td><td>16g</td></tr>
+        <tr><td>&nbsp;&nbsp;Fiber</td><td>6g</td></tr>
+        <tr><td>&nbsp;&nbsp;Sugars</td><td>2g</td></tr>
+        <tr class="total"><td>Protein</td><td>7g</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="wrap">
+    <div class="reviews-head">
+      <div>
+        <div class="eyebrow">◯ FROM THE CRACKL CREW ◯</div>
+        <h2>What people<br/>are saying.</h2>
+      </div>
+      <div class="agg">
+        <span class="big-rating">4.9</span>
+        <div>
+          <div class="stars" style="font-size:18px">★★★★★</div>
+          <div class="agg-r">247 VERIFIED REVIEWS</div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars-row">★★★★★</div>
+        <div class="quote">"I bought one bag to try. Now I have a subscription, a cabinet full of these, and a problem."</div>
+        <div class="author">
+          <span class="pip"></span>
+          <span>SAM K.</span>
+          <span class="verified">VERIFIED</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars-row">★★★★★</div>
+        <div class="quote">"The BBQ flavor is dangerously good. Like, hide-the-bag-from-yourself good."</div>
+        <div class="author">
+          <span class="pip"></span>
+          <span>JORDAN P.</span>
+          <span class="verified">VERIFIED</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars-row">★★★★★</div>
+        <div class="quote">"Finally a snack that delivers on the protein promise without tasting like sand. The travel packs live in my gym bag."</div>
+        <div class="author">
+          <span class="pip"></span>
+          <span>MIA R.</span>
+          <span class="verified">VERIFIED</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CROSS-SELL -->
+<section class="cross-sell">
+  <div class="wrap">
+    <div class="eyebrow">◯ THE WHOLE LINEUP ◯</div>
+    <h2>Try the<br/><span class="ital">other ones.</span></h2>
+    <div class="cross-grid">
+      <a href="chickpeas.html?flavor=bbq" class="cross-card bbq">
+        <div class="img-area"><div class="swatch-big"></div></div>
+        <div class="name">BBQ</div>
+        <div class="desc">Smoke. Sweet. Crackl.</div>
+        <div class="price-row">
+          <span class="p">$6.50</span>
+          <span class="add">VIEW →</span>
+        </div>
+      </a>
+      <a href="chickpeas.html?flavor=spicy" class="cross-card spicy">
+        <div class="img-area"><div class="swatch-big"></div></div>
+        <div class="name">Spicy</div>
+        <div class="desc">Heat that bites back.</div>
+        <div class="price-row">
+          <span class="p">$6.50</span>
+          <span class="add">VIEW →</span>
+        </div>
+      </a>
+      <a href="chickpeas.html?flavor=sea" class="cross-card sea">
+        <div class="img-area"><div class="swatch-big"></div></div>
+        <div class="name">Sea Salt</div>
+        <div class="desc">Clean. Crisp. Classic.</div>
+        <div class="price-row">
+          <span class="p">$6.50</span>
+          <span class="add">VIEW →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="big-mark">Crackl<span class="dot">.</span></div>
+        <p>Snack with a Crackl.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="chickpeas.html">Roasted Chickpeas</a>
+        <a href="chickpeas.html?flavor=bbq">BBQ</a>
+        <a href="chickpeas.html?flavor=spicy">Spicy</a>
+        <a href="chickpeas.html?flavor=sea">Sea Salt</a>
+      </div>
+      <div class="footer-col">
+        <h4>Brand</h4>
+        <a href="index.html#why">Why Crackl</a>
+        <a href="index.html#travel">Travel Format</a>
+        <a href="#" onclick="event.preventDefault(); toast('Press kit coming soon.')">Press</a>
+        <a href="#" onclick="event.preventDefault(); toast('We\\'d love to hear from you.')">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="micro">© 2026 CRACKL. ROASTED IN CALIFORNIA.</div>
+      <div class="micro">MADE WITH AVOCADO OIL & ACTUAL CARE.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><span class="dot"></span><span id="toast-text">Added to cart!</span></div>
+
+<script>
+  // ---------- Flavor system ----------
+  const FLAVORS = {
+    bbq:   { color: '#C84B1F', deep: '#9A3914', name: 'BBQ',      desc: 'Smoke. Sweet. Crackl.',  ing: 'Organic chickpeas, organic cold-pressed avocado oil, organic tomato powder, organic smoked paprika, organic onion powder, organic garlic powder, organic brown sugar, organic apple cider vinegar powder, sea salt.' },
+    spicy: { color: '#DC3545', deep: '#A8242F', name: 'Spicy',    desc: 'Heat that bites back.',  ing: 'Organic chickpeas, organic cold-pressed avocado oil, organic chili powder, organic cayenne, organic smoked paprika, organic garlic powder, organic onion powder, sea salt.' },
+    sea:   { color: '#3F8AAB', deep: '#2A627C', name: 'Sea Salt', desc: 'Clean. Crisp. Classic.', ing: 'Organic chickpeas, organic cold-pressed avocado oil, flaky sea salt.' }
+  };
+  const SIZE_IMAGES = {
+    '5oz': 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_185120_0cca4a66-098a-41c7-a446-8a07cc34c21e.png',
+    '1oz': 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_194554_b4500e55-0042-44e5-a216-2ebea26d0caa.png'
+  };
+
+  const state = {
+    flavor: 'bbq',
+    size: '5oz',
+    qty: 1,
+    subscribe: false
+  };
+  const PRICE = { '5oz': 6.50, '1oz': 2.25 };
+  const SIZE_LABEL = { '5oz': '5oz Hero Bag', '1oz': '1oz Travel Pack' };
+
+  const root = document.documentElement;
+  function setFlavor(key) {
+    const f = FLAVORS[key]; if (!f) return;
+    state.flavor = key;
+    root.style.setProperty('--flavor', f.color);
+    root.style.setProperty('--flavor-deep', f.deep);
+    document.getElementById('flavor-name').textContent = f.name;
+    document.getElementById('selected-pill').textContent = f.name.toUpperCase() + ' · ' + state.size.toUpperCase();
+    document.getElementById('ing-list').innerHTML = '<strong>' + f.ing.split(',')[0] + '</strong>' + f.ing.substring(f.ing.indexOf(','));
+    // update title accent
+    document.querySelectorAll('.swatch').forEach(s => s.classList.toggle('active', s.dataset.flavor === key));
+    // update URL
+    history.replaceState(null, '', '?flavor=' + key);
+  }
+  function setSize(size) {
+    state.size = size;
+    document.getElementById('size-label').textContent = SIZE_LABEL[size];
+    document.getElementById('selected-pill').textContent = FLAVORS[state.flavor].name.toUpperCase() + ' · ' + size.toUpperCase();
+    document.querySelectorAll('.size-opt').forEach(o => o.classList.toggle('active', o.dataset.size === size));
+    // update main image with fade
+    const img = document.getElementById('main-img');
+    img.classList.add('fade-out');
+    setTimeout(() => {
+      img.src = SIZE_IMAGES[size];
+      img.classList.remove('fade-out');
+    }, 180);
+    // update thumbnails
+    document.querySelectorAll('.thumb').forEach(t => t.classList.toggle('active', t.dataset.view === size));
+    updatePrice();
+  }
+  function updatePrice() {
+    let base = PRICE[state.size] * state.qty;
+    let display = base;
+    const old = document.getElementById('price-old');
+    const tag = document.getElementById('price-tag');
+    if (state.subscribe) {
+      display = base * 0.8;
+      old.style.display = 'inline';
+      old.textContent = '$' + base.toFixed(2);
+      tag.style.display = 'inline';
+    } else {
+      old.style.display = 'none';
+      tag.style.display = 'none';
+    }
+    document.getElementById('price-display').textContent = '$' + display.toFixed(2);
+    document.getElementById('atc-price').textContent = '$' + display.toFixed(2);
+  }
+  function qty(delta) {
+    state.qty = Math.max(1, state.qty + delta);
+    document.getElementById('qty').textContent = state.qty;
+    updatePrice();
+  }
+  function toggleSub() {
+    state.subscribe = !state.subscribe;
+    document.getElementById('sub-block').classList.toggle('active', state.subscribe);
+    updatePrice();
+  }
+  function addToCart() {
+    const f = FLAVORS[state.flavor];
+    toast('Added to cart · ' + f.name + ' ' + state.size.toUpperCase() + ' × ' + state.qty);
+    // Update fake cart count
+    const countEl = document.getElementById('cart-count');
+    const current = parseInt(countEl.textContent, 10) || 0;
+    countEl.textContent = current + state.qty;
+    countEl.classList.add('show');
+  }
+
+  // Wire swatches and size options
+  document.querySelectorAll('.swatch').forEach(s => {
+    s.addEventListener('click', () => setFlavor(s.dataset.flavor));
+  });
+  document.querySelectorAll('.size-opt').forEach(o => {
+    o.addEventListener('click', () => setSize(o.dataset.size));
+  });
+  document.querySelectorAll('.thumb').forEach(t => {
+    t.addEventListener('click', () => setSize(t.dataset.view));
+  });
+
+  // Read ?flavor=X from URL on load
+  const params = new URLSearchParams(window.location.search);
+  const initFlavor = params.get('flavor');
+  if (initFlavor && FLAVORS[initFlavor]) {
+    setFlavor(initFlavor);
+  } else {
+    setFlavor('bbq');
+  }
+
+  // Nav shadow on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 12);
+  });
+
+  // ---------- Toast ----------
+  const toastEl = document.getElementById('toast');
+  const toastText = document.getElementById('toast-text');
+  let toastTimer = null;
+  function toast(msg) {
+    toastText.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2400);
+  }
+</script>
+
+</body>
+</html>

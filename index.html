@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+<meta name="theme-color" content="#FAF5EC" />
+<title>Crackl. — Roasted Chickpeas. 7g Protein. Zero Seed Oils.</title>
+<meta name="description" content="Roasted chickpeas in three flavors. 7g of plant protein, 6g of fiber, zero seed oils. Made in California. Snack with a Crackl." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+<style>
+  /* ============================================================
+     CRACKL. — Brand site v1
+     Design language: Sticker Pop (R·10)
+     ============================================================ */
+  :root {
+    --cream: #FAF5EC;
+    --cream-2: #F2EBDC;
+    --char: #1F1A17;
+    --char-soft: rgba(31, 26, 23, 0.72);
+    --char-mute: rgba(31, 26, 23, 0.5);
+    --char-faint: rgba(31, 26, 23, 0.14);
+    --yellow: #F5C842;
+    --yellow-deep: #E5B82C;
+    --yellow-light: #FBE48A;
+    --bbq: #C84B1F;
+    --bbq-deep: #9A3914;
+    --spicy: #DC3545;
+    --spicy-deep: #A8242F;
+    --sea: #3F8AAB;
+    --sea-deep: #2A627C;
+    --flavor: var(--bbq);
+    --flavor-deep: var(--bbq-deep);
+
+    --max: 1280px;
+    --pad: clamp(20px, 5vw, 64px);
+    --rad: 14px;
+    --rad-pill: 999px;
+
+    --ease: cubic-bezier(.2, .8, .2, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--cream);
+    color: var(--char);
+    font-family: 'Hanken Grotesk', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); width: 100%; }
+
+  .fred { font-family: 'Fredoka', sans-serif; font-weight: 700; letter-spacing: -1.5px; }
+  .mono { font-family: 'DM Mono', monospace; }
+  .serif { font-family: 'Fraunces', serif; }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+    color: var(--char-soft);
+  }
+  .eyebrow.cream { color: rgba(250, 245, 236, 0.65); }
+
+  /* ============================================================
+     NAV
+     ============================================================ */
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250, 245, 236, 0.94);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  header.nav.scrolled { border-bottom-color: var(--char-faint); }
+  header.nav .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 0;
+  }
+  .logo {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: 26px; letter-spacing: -1px;
+    display: inline-flex; align-items: baseline;
+  }
+  .logo .dot { color: var(--flavor); transition: color 0.5s var(--ease); }
+  nav.links {
+    display: flex; gap: 36px; align-items: center;
+  }
+  nav.links a {
+    font-family: 'Hanken Grotesk', sans-serif; font-weight: 500;
+    font-size: 14px;
+    position: relative;
+  }
+  nav.links a::after {
+    content: ''; position: absolute; left: 0; bottom: -4px;
+    width: 0; height: 1.5px; background: var(--flavor);
+    transition: width 0.25s var(--ease);
+  }
+  nav.links a:hover::after { width: 100%; }
+
+  .cart-btn {
+    position: relative;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--char);
+    color: var(--cream);
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: transform 0.2s var(--ease), background 0.2s var(--ease);
+  }
+  .cart-btn:hover { transform: scale(1.08); background: var(--flavor); }
+  .cart-btn .cart-count {
+    position: absolute; top: -4px; right: -4px;
+    min-width: 18px; height: 18px; padding: 0 5px;
+    border-radius: 50%;
+    background: var(--flavor);
+    color: var(--cream);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; font-weight: 500;
+    display: none; align-items: center; justify-content: center;
+  }
+  .cart-btn .cart-count.show { display: flex; }
+
+  @media (max-width: 720px) {
+    nav.links { gap: 18px; }
+    nav.links a { display: none; }
+    nav.links a.shop-only { display: inline; font-weight: 600; }
+  }
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero {
+    padding: clamp(40px, 8vw, 100px) 0 clamp(48px, 9vw, 120px);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: clamp(32px, 6vw, 80px);
+    align-items: center;
+  }
+  @media (max-width: 880px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  .hero-headline {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: clamp(64px, 12vw, 156px);
+    line-height: 0.86;
+    letter-spacing: -5px;
+    margin-top: 22px;
+    margin-bottom: 22px;
+  }
+  .hero-headline .line { display: block; }
+  .hero-headline .dot { color: var(--flavor); transition: color 0.6s var(--ease); }
+  .hero-headline .wink { font-style: italic; font-weight: 500; font-family: 'Fraunces'; letter-spacing: -2px; }
+
+  .hero-sub {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 400;
+    font-size: clamp(20px, 2.4vw, 28px);
+    color: var(--char-soft);
+    margin-bottom: 24px;
+    max-width: 520px;
+    line-height: 1.35;
+  }
+  .hero-body {
+    font-size: 17px; line-height: 1.55;
+    color: var(--char-soft);
+    margin-bottom: 36px;
+    max-width: 480px;
+  }
+  .hero-body strong { color: var(--char); font-weight: 600; }
+
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 16px 28px;
+    border-radius: var(--rad-pill);
+    font-family: 'Hanken Grotesk', sans-serif; font-weight: 600;
+    font-size: 14px; letter-spacing: 0.4px;
+    transition: all 0.22s var(--ease);
+    line-height: 1;
+  }
+  .btn-primary {
+    background: var(--char); color: var(--cream);
+  }
+  .btn-primary:hover {
+    background: var(--flavor); transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(31, 26, 23, 0.22);
+  }
+  .btn-outline {
+    background: transparent; color: var(--char);
+    box-shadow: inset 0 0 0 1.5px var(--char);
+  }
+  .btn-outline:hover {
+    background: var(--char); color: var(--cream); transform: translateY(-2px);
+  }
+  .btn .arrow {
+    display: inline-block; transition: transform 0.2s var(--ease);
+  }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  .cert-row {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-top: 24px;
+  }
+  .cert-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 14px;
+    border-radius: var(--rad-pill);
+    background: var(--cream);
+    box-shadow: inset 0 0 0 1px var(--char-faint);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 1px;
+    color: var(--char-soft);
+  }
+  .cert-pill::before {
+    content: '◉'; color: var(--flavor); font-size: 9px;
+  }
+
+  /* hero image side */
+  .hero-image-wrap {
+    position: relative;
+    aspect-ratio: 16 / 11;
+  }
+  .hero-blob {
+    position: absolute; inset: 0;
+    z-index: 0;
+  }
+  .hero-blob svg { width: 100%; height: 100%; }
+  .hero-image {
+    position: relative; z-index: 1;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -20px rgba(31, 26, 23, 0.25);
+    transform: rotate(-1.2deg);
+    transition: transform 0.4s var(--ease);
+  }
+  .hero-image:hover { transform: rotate(0deg) scale(1.01); }
+
+  /* floating sticker badges around hero */
+  .hero-badge {
+    position: absolute; z-index: 2;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--cream);
+    box-shadow: inset 0 0 0 1.5px var(--char), 0 6px 18px rgba(31, 26, 23, 0.18);
+    text-align: center;
+    transition: transform 0.3s var(--ease);
+    animation: float 6s ease-in-out infinite;
+  }
+  .hero-badge:nth-of-type(2) { animation-delay: -2s; }
+  .hero-badge:nth-of-type(3) { animation-delay: -4s; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+    50% { transform: translateY(-8px) rotate(var(--rot, 0deg)); }
+  }
+
+  .badge-protein {
+    --rot: -8deg;
+    top: 8%; left: -4%;
+    width: 90px; height: 102px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+  .badge-protein .num {
+    font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 26px; line-height: 1;
+    color: var(--char);
+  }
+  .badge-protein .lbl {
+    font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 1.2px;
+    color: var(--char-soft); margin-top: 4px;
+  }
+  .badge-circle {
+    --rot: 10deg;
+    bottom: 4%; right: -2%;
+    width: 86px; height: 86px;
+    border-radius: 50%;
+    flex-direction: column;
+  }
+  .badge-circle .ring {
+    position: absolute; inset: 6px; border-radius: 50%;
+    border: 1px dashed var(--char-soft);
+  }
+  .badge-circle .num {
+    font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 22px; color: var(--char);
+  }
+  .badge-circle .lbl {
+    font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 1px;
+    color: var(--char-soft); margin-top: 2px;
+  }
+  .badge-tag {
+    --rot: 5deg;
+    top: 38%; right: -5%;
+    background: var(--flavor); color: var(--cream);
+    box-shadow: inset 0 0 0 1.5px var(--char), 0 6px 18px rgba(31, 26, 23, 0.2);
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: 13px; letter-spacing: 1px;
+    transition: background 0.5s var(--ease);
+  }
+
+  @media (max-width: 880px) {
+    .hero-image-wrap { aspect-ratio: 16 / 10; max-width: 540px; margin: 0 auto; }
+    .badge-protein { width: 70px; height: 80px; }
+    .badge-circle { width: 68px; height: 68px; }
+    .hero-headline { letter-spacing: -3px; }
+  }
+
+  /* ============================================================
+     MARQUEE
+     ============================================================ */
+  .marquee {
+    background: var(--char);
+    color: var(--cream);
+    padding: 22px 0;
+    overflow: hidden;
+    border-top: 1px solid var(--char);
+    border-bottom: 1px solid var(--char);
+  }
+  .marquee-track {
+    display: flex; gap: 48px;
+    animation: scroll 35s linear infinite;
+    width: max-content;
+  }
+  .marquee span {
+    font-family: 'Fredoka', sans-serif; font-weight: 600;
+    font-size: clamp(20px, 3vw, 32px);
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+  }
+  .marquee .star {
+    color: var(--yellow);
+    font-size: clamp(18px, 2.5vw, 28px);
+  }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ============================================================
+     WHY CRACKL
+     ============================================================ */
+  .why {
+    background: var(--yellow);
+    padding: clamp(72px, 12vw, 140px) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .why::before, .why::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; height: 40px;
+    background: var(--cream);
+  }
+  .why::before {
+    top: -1px;
+    clip-path: ellipse(58% 100% at 50% 0%);
+  }
+  .why::after {
+    bottom: -1px;
+    clip-path: ellipse(58% 100% at 50% 100%);
+  }
+  .why-head {
+    text-align: center;
+    margin-bottom: clamp(40px, 6vw, 70px);
+  }
+  .why-head h2 {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: clamp(48px, 9vw, 110px);
+    line-height: 0.92;
+    letter-spacing: -3.5px;
+    color: var(--char);
+    margin: 16px 0 16px;
+  }
+  .why-head .sub {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-size: clamp(18px, 2vw, 22px);
+    color: var(--char-soft);
+    max-width: 540px; margin: 0 auto;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 880px) {
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 520px) {
+    .why-grid { grid-template-columns: 1fr; }
+  }
+
+  .why-card {
+    background: var(--cream);
+    border-radius: var(--rad);
+    padding: 28px 24px 26px;
+    box-shadow: 0 4px 14px rgba(31, 26, 23, 0.06);
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+    position: relative;
+  }
+  .why-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(31, 26, 23, 0.14);
+  }
+  .why-card .num {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: 56px; line-height: 0.95; letter-spacing: -2px;
+    color: var(--char);
+    margin-bottom: 6px;
+  }
+  .why-card .num .unit {
+    font-size: 28px; color: var(--flavor);
+    transition: color 0.5s var(--ease);
+  }
+  .why-card .lbl {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 1.6px;
+    color: var(--char-mute);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .why-card .copy {
+    font-size: 15px; color: var(--char-soft); line-height: 1.5;
+  }
+  .why-card .stamp {
+    position: absolute; top: 24px; right: 22px;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--flavor);
+    color: var(--cream);
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    display: flex; align-items: center; justify-content: center;
+    transform: rotate(8deg);
+    transition: background 0.5s var(--ease);
+  }
+
+  /* ============================================================
+     FLAVORS
+     ============================================================ */
+  .flavors {
+    padding: clamp(72px, 12vw, 140px) 0;
+  }
+  .flavors-head {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 32px; flex-wrap: wrap;
+    margin-bottom: 56px;
+  }
+  .flavors-head h2 {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: clamp(46px, 8vw, 96px);
+    line-height: 0.9;
+    letter-spacing: -3.5px;
+    color: var(--char);
+  }
+  .flavors-head h2 .ital {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-weight: 500; letter-spacing: -2px;
+  }
+  .flavors-head .right {
+    max-width: 320px; color: var(--char-soft);
+    font-size: 16px;
+  }
+  .flavor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 880px) {
+    .flavor-grid { grid-template-columns: 1fr; }
+  }
+
+  .flavor-card {
+    position: relative;
+    border-radius: 22px;
+    overflow: hidden;
+    aspect-ratio: 3 / 4.2;
+    cursor: pointer;
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    display: flex; flex-direction: column;
+    color: var(--cream);
+  }
+  .flavor-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 50px rgba(31, 26, 23, 0.25);
+  }
+  .flavor-card.bbq { background: linear-gradient(180deg, var(--bbq), var(--bbq-deep)); }
+  .flavor-card.spicy { background: linear-gradient(180deg, var(--spicy), var(--spicy-deep)); }
+  .flavor-card.sea { background: linear-gradient(180deg, var(--sea), var(--sea-deep)); }
+
+  .flavor-card .top {
+    padding: 28px 26px 0;
+    display: flex; justify-content: space-between; align-items: flex-start;
+  }
+  .flavor-card .top .crackl-mark {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: 22px; letter-spacing: -1px;
+  }
+  .flavor-card .top .crackl-mark .dot { color: var(--cream); }
+  .flavor-card .top .num-stamp {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    letter-spacing: 1.5px;
+    padding: 4px 10px;
+    border: 1px solid rgba(250, 245, 236, 0.4);
+    border-radius: 999px;
+  }
+  .flavor-card .big-name {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: clamp(60px, 9vw, 96px);
+    line-height: 0.85;
+    letter-spacing: -3.5px;
+    padding: 18px 26px 0;
+    margin-top: auto;
+  }
+  .flavor-card .desc {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-size: 17px;
+    padding: 12px 26px 0;
+    opacity: 0.92;
+  }
+  .flavor-card .shop-row {
+    margin-top: 24px;
+    padding: 20px 26px 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(250, 245, 236, 0.2);
+  }
+  .flavor-card .price {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: 22px; letter-spacing: -1px;
+  }
+  .flavor-card .shop-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 10px 18px; border-radius: 999px;
+    background: var(--cream); color: var(--char);
+    font-family: 'Hanken Grotesk', sans-serif; font-weight: 600;
+    font-size: 13px; letter-spacing: 0.3px;
+    transition: transform 0.2s var(--ease);
+  }
+  .flavor-card:hover .shop-btn { transform: translateX(4px); }
+  .flavor-card .floating-pea {
+    position: absolute; top: 38%; right: -10%;
+    width: 60%; height: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(250, 245, 236, 0.18), transparent 70%);
+    pointer-events: none;
+  }
+
+  /* ============================================================
+     TRAVEL FORMAT
+     ============================================================ */
+  .travel {
+    background: var(--cream-2);
+    padding: clamp(72px, 12vw, 140px) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .travel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: clamp(36px, 6vw, 80px);
+    align-items: center;
+  }
+  @media (max-width: 880px) {
+    .travel-grid { grid-template-columns: 1fr; }
+  }
+  .travel h2 {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: clamp(46px, 8vw, 96px);
+    line-height: 0.9;
+    letter-spacing: -3.5px;
+    color: var(--char);
+    margin: 16px 0 22px;
+  }
+  .travel h2 .ital {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-weight: 500; letter-spacing: -2px;
+  }
+  .travel p {
+    color: var(--char-soft); font-size: 18px;
+    margin-bottom: 18px; max-width: 480px;
+  }
+  .travel .specs {
+    margin-top: 28px;
+    display: flex; flex-wrap: wrap; gap: 8px 24px;
+  }
+  .travel .specs li {
+    list-style: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 1.4px;
+    color: var(--char);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .travel .specs li::before {
+    content: ''; width: 6px; height: 6px;
+    background: var(--flavor); border-radius: 50%;
+    transition: background 0.5s var(--ease);
+  }
+  .travel .cta-row { margin-top: 36px; }
+
+  .travel-image-wrap {
+    position: relative;
+    aspect-ratio: 16 / 10;
+  }
+  .travel-image-wrap img {
+    width: 100%; height: 100%; object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 30px 60px -20px rgba(31, 26, 23, 0.25);
+    transform: rotate(1.5deg);
+    transition: transform 0.4s var(--ease);
+  }
+  .travel-image-wrap img:hover { transform: rotate(0deg); }
+  .travel-image-wrap .sticker {
+    position: absolute;
+    top: -18px; left: -18px;
+    background: var(--char); color: var(--cream);
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    transform: rotate(-12deg);
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    box-shadow: 0 10px 24px rgba(31, 26, 23, 0.25);
+    z-index: 2;
+  }
+  .travel-image-wrap .sticker .big {
+    font-size: 30px; letter-spacing: -1.5px; line-height: 0.9;
+  }
+  .travel-image-wrap .sticker .small {
+    font-family: 'DM Mono', monospace; font-size: 8px;
+    letter-spacing: 1.5px; margin-top: 4px;
+    color: var(--yellow);
+  }
+
+  /* ============================================================
+     SOURCING
+     ============================================================ */
+  .sourcing {
+    padding: clamp(72px, 12vw, 140px) 0;
+  }
+  .sourcing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  @media (max-width: 880px) {
+    .sourcing-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+  .sourcing h2 {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: clamp(40px, 7vw, 84px);
+    line-height: 0.92;
+    letter-spacing: -3px;
+    color: var(--char);
+    margin: 14px 0 22px;
+  }
+  .sourcing h2 .ital {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-weight: 500; letter-spacing: -1.5px;
+  }
+  .sourcing p {
+    color: var(--char-soft); font-size: 17px;
+    margin-bottom: 16px; max-width: 540px;
+  }
+  .sourcing-stats {
+    background: var(--cream-2);
+    border-radius: 20px;
+    padding: 36px 32px;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    box-shadow: inset 0 0 0 1px var(--char-faint);
+  }
+  .sourcing-stats .stat .num {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: 42px; letter-spacing: -1.5px; line-height: 1;
+    color: var(--char);
+  }
+  .sourcing-stats .stat .num .small { font-size: 22px; color: var(--flavor); transition: color 0.5s var(--ease); }
+  .sourcing-stats .stat .lbl {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: 1.4px; color: var(--char-mute);
+    margin-top: 8px; text-transform: uppercase;
+  }
+
+  /* ============================================================
+     NEWSLETTER
+     ============================================================ */
+  .newsletter {
+    background: var(--char);
+    color: var(--cream);
+    padding: clamp(72px, 11vw, 130px) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .newsletter-inner {
+    text-align: center;
+    max-width: 720px; margin: 0 auto;
+    position: relative; z-index: 1;
+  }
+  .newsletter h2 {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: clamp(46px, 8vw, 96px);
+    line-height: 0.92;
+    letter-spacing: -3.5px;
+    margin: 14px 0 16px;
+  }
+  .newsletter h2 .accent { color: var(--yellow); }
+  .newsletter p {
+    color: rgba(250, 245, 236, 0.7);
+    font-size: 18px;
+    margin-bottom: 36px;
+  }
+  .newsletter form {
+    display: flex; flex-wrap: wrap;
+    max-width: 480px; margin: 0 auto;
+    background: rgba(250, 245, 236, 0.08);
+    border-radius: 999px;
+    padding: 6px;
+    border: 1px solid rgba(250, 245, 236, 0.18);
+  }
+  .newsletter input {
+    flex: 1; min-width: 200px;
+    background: transparent; border: none; outline: none;
+    color: var(--cream);
+    font-family: 'Hanken Grotesk', sans-serif; font-size: 15px;
+    padding: 14px 22px;
+  }
+  .newsletter input::placeholder { color: rgba(250, 245, 236, 0.5); }
+  .newsletter button {
+    padding: 14px 28px;
+    border-radius: 999px;
+    background: var(--yellow); color: var(--char);
+    font-family: 'Hanken Grotesk', sans-serif; font-weight: 600;
+    font-size: 14px;
+    transition: background 0.2s var(--ease);
+  }
+  .newsletter button:hover { background: var(--cream); }
+  .newsletter .micro {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: 1.4px; color: rgba(250, 245, 236, 0.4);
+    margin-top: 24px;
+  }
+  .newsletter-blob {
+    position: absolute; top: 50%; right: -100px;
+    transform: translateY(-50%);
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, var(--yellow), transparent 60%);
+    opacity: 0.08;
+    pointer-events: none;
+  }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  footer {
+    background: var(--cream);
+    border-top: 1px solid var(--char-faint);
+    padding: 80px 0 36px;
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px; margin-bottom: 60px;
+  }
+  @media (max-width: 720px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .footer-col h4 {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: 1.8px; text-transform: uppercase;
+    color: var(--char-mute); margin-bottom: 16px;
+  }
+  .footer-col a {
+    display: block;
+    font-size: 14px; line-height: 2;
+    color: var(--char-soft);
+    transition: color 0.2s var(--ease);
+  }
+  .footer-col a:hover { color: var(--flavor); }
+  .footer-brand .big-mark {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: 48px; letter-spacing: -2px;
+    margin-bottom: 12px;
+  }
+  .footer-brand .big-mark .dot { color: var(--flavor); transition: color 0.5s var(--ease); }
+  .footer-brand p {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-size: 17px; color: var(--char-soft);
+    max-width: 280px;
+  }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+    padding-top: 28px;
+    border-top: 1px solid var(--char-faint);
+  }
+  .footer-bottom .micro {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: 1.4px; color: var(--char-mute);
+  }
+
+  /* ============================================================
+     TOAST
+     ============================================================ */
+  .toast {
+    position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(120%);
+    background: var(--char); color: var(--cream);
+    padding: 14px 24px;
+    border-radius: 999px;
+    font-family: 'Hanken Grotesk', sans-serif; font-weight: 500;
+    font-size: 14px;
+    box-shadow: 0 14px 30px rgba(31, 26, 23, 0.3);
+    z-index: 100;
+    opacity: 0;
+    transition: transform 0.4s var(--ease), opacity 0.3s var(--ease);
+    display: inline-flex; align-items: center; gap: 10px;
+    pointer-events: none;
+  }
+  .toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  .toast .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--yellow);
+  }
+</style>
+</head>
+
+<body>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="/" class="logo">Crackl<span class="dot">.</span></a>
+    <nav class="links">
+      <a href="chickpeas.html" class="shop-only">Shop</a>
+      <a href="#why">Story</a>
+      <a href="#flavors">Flavors</a>
+      <a href="#travel">Travel</a>
+    </nav>
+    <button class="cart-btn" onclick="toast('Cart launching with the brand. Stay tuned.')" aria-label="Cart">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+        <path d="M3 6h18"></path>
+        <path d="M16 10a4 4 0 0 1-8 0"></path>
+      </svg>
+      <span class="cart-count" id="cart-count">0</span>
+    </button>
+  </div>
+</header>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-left">
+      <div class="eyebrow">◯ ROASTED · ORGANIC · CALIFORNIA-GROWN ◯</div>
+
+      <h1 class="hero-headline">
+        <span class="line">Hello<span class="wink">,</span></span>
+        <span class="line">Crackl<span class="dot">.</span></span>
+      </h1>
+
+      <p class="hero-sub">Roasted chickpeas that hit harder than they have any right to.</p>
+
+      <p class="hero-body">
+        <strong>7g protein.</strong> <strong>6g fiber.</strong> Zero seed oils.
+        Three flavors that ruin every other snack you used to eat.
+      </p>
+
+      <div class="cta-row">
+        <a href="chickpeas.html" class="btn btn-primary">
+          Shop the Trio <span class="arrow">→</span>
+        </a>
+        <a href="#why" class="btn btn-outline">How It's Made</a>
+      </div>
+
+      <div class="cert-row">
+        <span class="cert-pill">USDA ORGANIC</span>
+        <span class="cert-pill">VEGAN</span>
+        <span class="cert-pill">NON-GMO</span>
+        <span class="cert-pill">GLUTEN FREE</span>
+        <span class="cert-pill">SEED OIL FREE</span>
+      </div>
+    </div>
+
+    <div class="hero-image-wrap">
+      <div class="hero-blob" aria-hidden="true">
+        <svg viewBox="0 0 600 440" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="bgrad" cx="50%" cy="50%" r="60%">
+              <stop offset="0%" stop-color="#F5C842" stop-opacity="0.95"/>
+              <stop offset="80%" stop-color="#F5C842" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#F5C842" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <ellipse cx="300" cy="220" rx="290" ry="200" fill="url(#bgrad)"/>
+        </svg>
+      </div>
+
+      <div class="hero-badge badge-protein">
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+          <div class="num">7G</div>
+          <div class="lbl">PROTEIN</div>
+        </div>
+      </div>
+      <div class="hero-badge badge-tag">SNACK WITH<br/>A CRACKL.</div>
+      <div class="hero-badge badge-circle">
+        <div class="ring"></div>
+        <div class="num">6G</div>
+        <div class="lbl">FIBER</div>
+      </div>
+
+      <div class="hero-image">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_185120_0cca4a66-098a-41c7-a446-8a07cc34c21e.png"
+             alt="Crackl. roasted chickpeas — three flavors. BBQ, Spicy, and Sea Salt 5oz bags."/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MARQUEE
+     ============================================================ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>SNACK WITH A CRACKL.</span><span class="star">✦</span>
+    <span>7G PROTEIN</span><span class="star">✦</span>
+    <span>6G FIBER</span><span class="star">✦</span>
+    <span>NO SEED OILS</span><span class="star">✦</span>
+    <span>MADE IN CALIFORNIA</span><span class="star">✦</span>
+    <span>USDA ORGANIC</span><span class="star">✦</span>
+    <span>BIG CRUNCH ENERGY</span><span class="star">✦</span>
+
+    <span>SNACK WITH A CRACKL.</span><span class="star">✦</span>
+    <span>7G PROTEIN</span><span class="star">✦</span>
+    <span>6G FIBER</span><span class="star">✦</span>
+    <span>NO SEED OILS</span><span class="star">✦</span>
+    <span>MADE IN CALIFORNIA</span><span class="star">✦</span>
+    <span>USDA ORGANIC</span><span class="star">✦</span>
+    <span>BIG CRUNCH ENERGY</span><span class="star">✦</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     WHY CRACKL
+     ============================================================ -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="why-head">
+      <div class="eyebrow">◯ THE FINE PRINT ISN'T THAT FINE ◯</div>
+      <h2>Why you're about<br/>to lose it.</h2>
+      <p class="sub">Six reasons we built a snack that earns the spot in your bag.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="stamp">✓</div>
+        <div class="num">7<span class="unit">g</span></div>
+        <div class="lbl">PLANT PROTEIN</div>
+        <div class="copy">Real fuel from real chickpeas. Not isolate sludge.</div>
+      </div>
+      <div class="why-card">
+        <div class="stamp">✓</div>
+        <div class="num">6<span class="unit">g</span></div>
+        <div class="lbl">FIBER</div>
+        <div class="copy">Your gut, finally getting the call it's been waiting for.</div>
+      </div>
+      <div class="why-card">
+        <div class="stamp">✓</div>
+        <div class="num">0<span class="unit">ml</span></div>
+        <div class="lbl">SEED OILS</div>
+        <div class="copy">None. Zero. We use avocado oil. The expensive one.</div>
+      </div>
+      <div class="why-card">
+        <div class="stamp">✓</div>
+        <div class="num">USDA</div>
+        <div class="lbl">CERTIFIED ORGANIC</div>
+        <div class="copy">Every chickpea. Every batch. Federally verified clean.</div>
+      </div>
+      <div class="why-card">
+        <div class="stamp">✓</div>
+        <div class="num">100<span class="unit">%</span></div>
+        <div class="lbl">PLANT-BASED</div>
+        <div class="copy">No animals. No dairy. Just legumes doing legume things.</div>
+      </div>
+      <div class="why-card">
+        <div class="stamp">✓</div>
+        <div class="num">GF</div>
+        <div class="lbl">GLUTEN FREE</div>
+        <div class="copy">Celiac-safe. Coworker-safe. Mom-with-an-opinion-safe.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FLAVORS
+     ============================================================ -->
+<section class="flavors" id="flavors">
+  <div class="wrap">
+    <div class="flavors-head">
+      <div>
+        <div class="eyebrow">◯ MEET THE LINEUP ◯</div>
+        <h2 style="margin-top:14px">Three flavors.<br/><span class="ital">Zero chill.</span></h2>
+      </div>
+      <p class="right">Every bag uses the same chickpeas, the same avocado oil, the same obsession. The only thing that changes is what we put on top.</p>
+    </div>
+
+    <div class="flavor-grid">
+      <a href="chickpeas.html?flavor=bbq" class="flavor-card bbq" data-flavor="bbq">
+        <div class="top">
+          <span class="crackl-mark">Crackl<span class="dot">.</span></span>
+          <span class="num-stamp">No 01</span>
+        </div>
+        <div class="floating-pea"></div>
+        <div class="big-name">BBQ</div>
+        <div class="desc">Smoke. Sweet. Crackl.</div>
+        <div class="shop-row">
+          <span class="price">$6.50</span>
+          <span class="shop-btn">Shop →</span>
+        </div>
+      </a>
+
+      <a href="chickpeas.html?flavor=spicy" class="flavor-card spicy" data-flavor="spicy">
+        <div class="top">
+          <span class="crackl-mark">Crackl<span class="dot">.</span></span>
+          <span class="num-stamp">No 02</span>
+        </div>
+        <div class="floating-pea"></div>
+        <div class="big-name">SPICY</div>
+        <div class="desc">Heat that bites back.</div>
+        <div class="shop-row">
+          <span class="price">$6.50</span>
+          <span class="shop-btn">Shop →</span>
+        </div>
+      </a>
+
+      <a href="chickpeas.html?flavor=sea" class="flavor-card sea" data-flavor="sea">
+        <div class="top">
+          <span class="crackl-mark">Crackl<span class="dot">.</span></span>
+          <span class="num-stamp">No 03</span>
+        </div>
+        <div class="floating-pea"></div>
+        <div class="big-name">SEA<br/>SALT</div>
+        <div class="desc">Clean. Crisp. Classic.</div>
+        <div class="shop-row">
+          <span class="price">$6.50</span>
+          <span class="shop-btn">Shop →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TRAVEL FORMAT
+     ============================================================ -->
+<section class="travel" id="travel">
+  <div class="wrap travel-grid">
+    <div class="travel-left">
+      <div class="eyebrow">◯ THE 1OZ TRAVEL FORMAT ◯</div>
+      <h2>Built for<br/><span class="ital">the move.</span></h2>
+      <p>The same Crackl. Compressed into a 1-ounce pillow pack that lives in your gym bag, glovebox, hotel desk drawer, or the deepest pocket of whatever jacket you grab on the way out.</p>
+      <p>One tear, one handful, one good decision.</p>
+
+      <ul class="specs">
+        <li>1 OZ NET WT</li>
+        <li>6.5" TALL</li>
+        <li>2 RIPS = OPEN</li>
+        <li>POCKET-SAFE</li>
+      </ul>
+
+      <div class="cta-row">
+        <a href="chickpeas.html" class="btn btn-primary">Shop Travel Packs <span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <div class="travel-image-wrap">
+      <div class="sticker">
+        <span class="big">1 OZ</span>
+        <span class="small">GRAB & GO</span>
+      </div>
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_194554_b4500e55-0042-44e5-a216-2ebea26d0caa.png"
+           alt="Crackl. 1oz travel-format pillow packs — BBQ, Spicy, and Sea Salt."/>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SOURCING
+     ============================================================ -->
+<section class="sourcing">
+  <div class="wrap sourcing-grid">
+    <div>
+      <div class="eyebrow">◯ FROM THE GROUND UP ◯</div>
+      <h2>From California fields<br/>to <span class="ital">your face.</span></h2>
+      <p>Our chickpeas come from organic farms in California's San Joaquin and Sacramento Valleys — large Kabuli garbanzos picked at peak size and roasted within weeks of harvest.</p>
+      <p>No mystery suppliers. No shortcuts. No mid-grade beans dressed up with a marketing department.</p>
+    </div>
+
+    <div class="sourcing-stats">
+      <div class="stat">
+        <div class="num">10<span class="small">k</span></div>
+        <div class="lbl">CA Acres in Production</div>
+      </div>
+      <div class="stat">
+        <div class="num">2026</div>
+        <div class="lbl">First Harvest</div>
+      </div>
+      <div class="stat">
+        <div class="num">100<span class="small">%</span></div>
+        <div class="lbl">Non-GMO</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     NEWSLETTER
+     ============================================================ -->
+<section class="newsletter">
+  <div class="newsletter-blob"></div>
+  <div class="wrap newsletter-inner">
+    <div class="eyebrow cream">◯ THE LIST ◯</div>
+    <h2>Get in <span class="accent">early.</span></h2>
+    <p>Be the first to crack open a bag. Early access, founder updates, the occasional snack secret.</p>
+    <form onsubmit="event.preventDefault(); subscribe(this);">
+      <input type="email" placeholder="you@example.com" required />
+      <button type="submit">Crunch me in →</button>
+    </form>
+    <div class="micro">NO SPAM · UNSUBSCRIBE ANYTIME · NEVER SHARED</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="big-mark">Crackl<span class="dot">.</span></div>
+        <p>Snack with a Crackl.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="chickpeas.html">Roasted Chickpeas</a>
+        <a href="chickpeas.html?flavor=bbq">BBQ</a>
+        <a href="chickpeas.html?flavor=spicy">Spicy</a>
+        <a href="chickpeas.html?flavor=sea">Sea Salt</a>
+      </div>
+      <div class="footer-col">
+        <h4>Brand</h4>
+        <a href="#why">Why Crackl</a>
+        <a href="#travel">Travel Format</a>
+        <a href="#" onclick="event.preventDefault(); toast('Press kit coming soon.')">Press</a>
+        <a href="#" onclick="event.preventDefault(); toast('We\\'d love to hear from you.')">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="micro">© 2026 CRACKL. ROASTED IN CALIFORNIA.</div>
+      <div class="micro">MADE WITH AVOCADO OIL & ACTUAL CARE.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     TOAST
+     ============================================================ -->
+<div class="toast" id="toast"><span class="dot"></span><span id="toast-text">Added to cart!</span></div>
+
+<script>
+  // ---------- Flavor color cycling on hover (homepage accent) ----------
+  const FLAVORS = {
+    bbq:   { color: '#C84B1F', deep: '#9A3914' },
+    spicy: { color: '#DC3545', deep: '#A8242F' },
+    sea:   { color: '#3F8AAB', deep: '#2A627C' }
+  };
+  const root = document.documentElement;
+  function setFlavor(key) {
+    const f = FLAVORS[key]; if (!f) return;
+    root.style.setProperty('--flavor', f.color);
+    root.style.setProperty('--flavor-deep', f.deep);
+  }
+  // cycle flavor color on flavor card hover for the page accent
+  document.querySelectorAll('.flavor-card').forEach(card => {
+    card.addEventListener('mouseenter', () => setFlavor(card.dataset.flavor));
+  });
+
+  // ---------- Cycle flavor color in hero every few seconds ----------
+  const order = ['bbq', 'spicy', 'sea'];
+  let idx = 0;
+  setInterval(() => {
+    idx = (idx + 1) % order.length;
+    setFlavor(order[idx]);
+  }, 4200);
+
+  // ---------- Nav shadow on scroll ----------
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 12);
+  });
+
+  // ---------- Toast ----------
+  const toastEl = document.getElementById('toast');
+  const toastText = document.getElementById('toast-text');
+  let toastTimer = null;
+  function toast(msg) {
+    toastText.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2400);
+  }
+  function subscribe(form) {
+    form.reset();
+    toast("You're on the list. Crunch incoming.");
+  }
+</script>
+
+</body>
+</html>
