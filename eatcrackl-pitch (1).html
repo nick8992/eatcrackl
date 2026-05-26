@@ -679,6 +679,275 @@
     opacity: 1; transform: translateY(0);
   }
 
+  /* ---------- UNIT ECONOMICS ---------- */
+  .economics-section {
+    background: var(--char); color: var(--cream);
+    padding: 120px 0; position: relative; overflow: hidden;
+  }
+  .economics-section .label.light::before { background: var(--cream); }
+  .economics-section h2 {
+    font-family: 'Fredoka'; font-weight: 700;
+    font-size: clamp(44px, 7vw, 88px); letter-spacing: -2.5px; line-height: 0.95;
+    margin-top: 24px;
+  }
+  .economics-section h2 .accent {
+    font-family: 'Fraunces'; font-style: italic; font-weight: 500;
+    color: #F5C842;
+  }
+  .economics-section .intro {
+    margin-top: 24px; font-size: 17px; line-height: 1.65;
+    color: rgba(250, 245, 236, 0.75); max-width: 640px;
+  }
+  .economics-section .disclaimer {
+    margin-top: 16px; font-family: 'DM Mono'; font-size: 10px;
+    letter-spacing: 1.4px; color: rgba(250, 245, 236, 0.4);
+    max-width: 640px;
+  }
+  .econ-grid { margin-top: 56px; display: grid; gap: 24px; }
+  .econ-card {
+    background: rgba(250, 245, 236, 0.03);
+    border: 1px solid rgba(250, 245, 236, 0.12);
+    border-radius: 18px; padding: 32px;
+  }
+  .econ-card-inner {
+    display: grid; gap: 40px; align-items: start;
+  }
+  @media (min-width: 980px) {
+    .econ-card-inner { grid-template-columns: 1fr 1.15fr; gap: 48px; }
+  }
+
+  .econ-header {
+    display: flex; align-items: flex-start; gap: 18px;
+    margin-bottom: 32px;
+  }
+  .econ-num {
+    width: 44px; height: 44px;
+    background: #F5C842; color: var(--char);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fredoka'; font-weight: 700; font-size: 18px;
+    flex-shrink: 0;
+  }
+  .econ-title-name {
+    font-family: 'Fredoka'; font-weight: 700;
+    font-size: 32px; letter-spacing: -1.2px; line-height: 1;
+    color: var(--cream);
+  }
+  .econ-title-sub {
+    font-family: 'DM Mono'; font-size: 10px; letter-spacing: 1.6px;
+    color: rgba(250, 245, 236, 0.55); margin-top: 8px;
+  }
+
+  /* Inputs */
+  .input-group { margin-bottom: 24px; }
+  .input-group:last-child { margin-bottom: 0; }
+  .group-title {
+    font-family: 'DM Mono'; font-size: 10px; letter-spacing: 1.8px;
+    color: rgba(250, 245, 236, 0.5);
+    padding-bottom: 8px; margin-bottom: 12px;
+    border-bottom: 1px solid rgba(250, 245, 236, 0.1);
+  }
+  .input-row {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; padding: 8px 0;
+  }
+  .input-row label {
+    font-size: 13px; color: rgba(250, 245, 236, 0.75);
+    font-family: 'Hanken Grotesk', sans-serif;
+  }
+  .input-wrap {
+    display: inline-flex; align-items: center;
+    background: rgba(250, 245, 236, 0.06);
+    border: 1px solid rgba(250, 245, 236, 0.14);
+    border-radius: 8px;
+    padding: 0 10px; min-width: 130px; justify-content: flex-end;
+    transition: border-color 0.18s ease, background 0.18s ease;
+  }
+  .input-wrap:focus-within {
+    background: rgba(245, 200, 66, 0.08);
+    border-color: rgba(245, 200, 66, 0.55);
+  }
+  .input-wrap .prefix,
+  .input-wrap .suffix {
+    font-family: 'DM Mono'; font-size: 11px; letter-spacing: 0.5px;
+    color: rgba(250, 245, 236, 0.5);
+    padding: 0 4px;
+  }
+  .input-wrap input {
+    background: transparent; border: none; outline: none;
+    color: #F5C842;
+    font-family: 'Fredoka', sans-serif; font-weight: 600;
+    font-size: 15px; letter-spacing: -0.3px;
+    text-align: right;
+    padding: 10px 4px;
+    width: 80px; min-width: 0;
+    -moz-appearance: textfield;
+  }
+  .input-wrap input::-webkit-outer-spin-button,
+  .input-wrap input::-webkit-inner-spin-button {
+    -webkit-appearance: none; margin: 0;
+  }
+
+  /* Outputs */
+  .cost-breakdown {
+    background: rgba(250, 245, 236, 0.04);
+    border: 1px solid rgba(250, 245, 236, 0.08);
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin-bottom: 24px;
+  }
+  .breakdown-title {
+    font-family: 'DM Mono'; font-size: 10px; letter-spacing: 1.8px;
+    color: rgba(250, 245, 236, 0.5);
+    margin-bottom: 14px;
+  }
+  .cost-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 8px 0;
+    border-top: 1px solid rgba(250, 245, 236, 0.08);
+    font-size: 13px;
+  }
+  .cost-row:first-of-type { border-top: 0; }
+  .cost-row > span:first-child {
+    font-family: 'Fredoka'; font-weight: 600;
+    color: var(--cream);
+  }
+  .cost-row .vals {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'DM Mono'; font-size: 12px;
+    color: rgba(250, 245, 236, 0.75);
+  }
+  .cost-row .plus, .cost-row .eq {
+    color: rgba(250, 245, 236, 0.35); font-size: 10px;
+  }
+  .cost-row .total {
+    font-family: 'Fredoka'; font-weight: 700; font-size: 15px;
+    color: #F5C842; letter-spacing: -0.3px;
+  }
+
+  .monthly-summary {
+    background: rgba(250, 245, 236, 0.04);
+    border: 1px solid rgba(250, 245, 236, 0.08);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 24px;
+  }
+  .monthly-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 8px 0;
+    border-top: 1px solid rgba(250, 245, 236, 0.08);
+  }
+  .monthly-row:first-of-type { border-top: 0; }
+  .monthly-row .lbl {
+    font-family: 'DM Mono'; font-size: 10px; letter-spacing: 1.5px;
+    color: rgba(250, 245, 236, 0.55);
+  }
+  .monthly-row .val {
+    font-family: 'Fredoka'; font-weight: 700; font-size: 18px;
+    color: var(--cream); letter-spacing: -0.5px;
+  }
+  .monthly-row.margin .val {
+    font-size: 22px;
+    transition: color 0.25s ease;
+  }
+  .monthly-row.margin .val.healthy { color: #6FCF97; }
+  .monthly-row.margin .val.warning { color: #F5C842; }
+  .monthly-row.margin .val.critical { color: #E8704A; }
+
+  .annual-summary {
+    border-top: 1px dashed rgba(250, 245, 236, 0.18);
+    padding-top: 22px;
+  }
+  .annual-title {
+    font-family: 'DM Mono'; font-size: 10px; letter-spacing: 2px;
+    color: rgba(250, 245, 236, 0.55);
+    margin-bottom: 16px;
+  }
+  .annual-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(250, 245, 236, 0.06);
+  }
+  .annual-row:last-of-type { border-bottom: 0; }
+  .annual-row .annual-lbl {
+    font-family: 'DM Mono'; font-size: 10px; letter-spacing: 1.5px;
+    color: rgba(250, 245, 236, 0.6);
+  }
+  .annual-row .annual-val {
+    font-family: 'Fredoka'; font-weight: 700;
+    font-size: clamp(24px, 3vw, 32px); letter-spacing: -1.2px; line-height: 1;
+    color: var(--cream);
+  }
+  .annual-row .annual-val.cogs { color: rgba(250, 245, 236, 0.55); }
+  .annual-row.big {
+    background: rgba(245, 200, 66, 0.08);
+    margin: 8px -14px 0;
+    padding: 16px 14px;
+    border-radius: 10px;
+    border-bottom: 0;
+  }
+  .annual-row.big .annual-val {
+    font-size: clamp(28px, 4vw, 40px);
+    color: #F5C842;
+    transition: color 0.25s ease;
+  }
+
+  .target-callout {
+    margin-top: 20px;
+    padding: 16px 18px;
+    border: 1px dashed rgba(245, 200, 66, 0.4);
+    border-radius: 10px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .target-callout .target-icon {
+    font-family: 'Fredoka'; font-weight: 700;
+    color: #F5C842; font-size: 22px; line-height: 1;
+    flex-shrink: 0;
+  }
+  .target-callout .target-body {
+    font-size: 12px; line-height: 1.5;
+    color: rgba(250, 245, 236, 0.75);
+  }
+  .target-callout .target-body strong {
+    color: #F5C842; font-weight: 600;
+  }
+  .target-callout .target-input-wrap {
+    margin-left: auto;
+    display: inline-flex; align-items: center;
+    background: rgba(245, 200, 66, 0.1);
+    border-radius: 999px; padding: 4px 10px;
+  }
+  .target-callout .target-input-wrap input {
+    background: transparent; border: none; outline: none;
+    color: #F5C842;
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: 14px;
+    text-align: right; width: 36px;
+    -moz-appearance: textfield;
+  }
+  .target-callout .target-input-wrap input::-webkit-outer-spin-button,
+  .target-callout .target-input-wrap input::-webkit-inner-spin-button {
+    -webkit-appearance: none; margin: 0;
+  }
+  .target-callout .target-input-wrap span {
+    font-family: 'Fredoka'; font-weight: 700; font-size: 14px;
+    color: #F5C842;
+  }
+
+  .econ-reset {
+    margin-top: 24px;
+    font-family: 'DM Mono'; font-size: 10px; letter-spacing: 1.4px;
+    color: rgba(250, 245, 236, 0.55);
+    padding: 8px 14px; border-radius: 999px;
+    background: transparent;
+    border: 1px solid rgba(250, 245, 236, 0.2);
+    transition: all 0.2s ease;
+  }
+  .econ-reset:hover {
+    color: var(--cream);
+    border-color: rgba(250, 245, 236, 0.5);
+  }
+
   /* ---------- ANIM ---------- */
   @media (prefers-reduced-motion: no-preference) {
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
@@ -1020,35 +1289,36 @@
   </div>
 </section>
 
-<!-- DESIGN DIRECTIONS -->
+<!-- RODEO-INSPIRED SYSTEM (LEAD DIRECTION) -->
 <section class="directions">
   <div class="wrap">
-    <div class="label">08 · DESIGN DIRECTIONS</div>
+    <div class="label">08 · RODEO-INSPIRED SYSTEM</div>
     <div class="head">
-      <h2>Six ways to wear<br/>the same brand.</h2>
-      <p class="intro">
-        Each variation pulls a different typographic lever — vertical stacks, mega-bold,
-        angles, stencils, split fields — while holding the same color system and wordmark.
-        Tap the toggle on any card to flip between the 5oz hero bag and the 1oz travel stick.
-      </p>
-    </div>
-    <div class="v-grid" id="variations-grid"></div>
-  </div>
-</section>
-
-<!-- RODEO-INSPIRED SYSTEM -->
-<section class="directions" style="padding-top: 0;">
-  <div class="wrap">
-    <div class="label">09 · RODEO-INSPIRED SYSTEM</div>
-    <div class="head">
-      <h2>The other<br/>direction.</h2>
+      <h2>The lead<br/>direction.</h2>
       <p class="intro">
         Inspired by Rodeo Snacks' design DNA — cream upper + colored bottom field, mixed serif/sans
         typography, playful sticker badges. The six finalists range from heritage-rustic to
         sticker-pop bold, with one keeping the scallop motif and the rest going clean.
+        Tap the toggle on any card to flip between the 5oz hero bag and the 1oz travel stick.
       </p>
     </div>
     <div class="v-grid" id="variations-rodeo-grid"></div>
+  </div>
+</section>
+
+<!-- DESIGN DIRECTIONS (ALTERNATE) -->
+<section class="directions" style="padding-top: 0;">
+  <div class="wrap">
+    <div class="label">09 · ALTERNATE DIRECTIONS</div>
+    <div class="head">
+      <h2>Six other ways<br/>to wear the brand.</h2>
+      <p class="intro">
+        A second lane of typographic explorations — vertical stacks, mega-bold,
+        angles, stencils, split fields — holding the same color system and wordmark.
+        Kept on file as the contrarian option if the lead direction needs a counter-pitch.
+      </p>
+    </div>
+    <div class="v-grid" id="variations-grid"></div>
   </div>
 </section>
 
@@ -1112,6 +1382,292 @@
         <div class="fred lab">SEED OILS</div>
         <div class="sub">NONE. EVER.</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIT ECONOMICS -->
+<section class="economics-section">
+  <div class="wrap">
+    <div class="label light">12 · UNIT ECONOMICS</div>
+    <h2>The margin <span class="accent">math.</span></h2>
+    <p class="intro">
+      What it costs to make a bag. What we sell it for. What's left over.
+      Tweak any input — bean price, unit volume, packaging, mix, retail price — and the model
+      reacts in real time. Annual revenue and COGS calculated from Amazon-comparable run rates.
+    </p>
+    <p class="disclaimer">
+      ◯ COGS REFLECTS BEANS + PACKAGING ONLY · NO LABOR, OVERHEAD, AMAZON FEES, OR FREIGHT
+    </p>
+
+    <div class="econ-grid">
+
+      <!-- CHICKPEA CARD -->
+      <div class="econ-card" data-product="chickpea">
+        <div class="econ-card-inner">
+
+          <!-- LEFT: INPUTS -->
+          <div>
+            <div class="econ-header">
+              <div class="econ-num">A</div>
+              <div>
+                <div class="econ-title-name">Chickpea</div>
+                <div class="econ-title-sub">CURRENT LAUNCH SKU · 5OZ-LED MIX</div>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <div class="group-title">◯ VOLUME &amp; MIX</div>
+              <div class="input-row">
+                <label>Units / month</label>
+                <div class="input-wrap"><input type="number" data-product="chickpea" data-key="units" value="6000" step="100" inputmode="numeric"/><span class="suffix">units</span></div>
+              </div>
+              <div class="input-row">
+                <label>% sold as 5oz</label>
+                <div class="input-wrap"><input type="number" data-product="chickpea" data-key="pct5oz" value="85" step="1" min="0" max="100" inputmode="numeric"/><span class="suffix">%</span></div>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <div class="group-title">◯ RETAIL PRICING</div>
+              <div class="input-row">
+                <label>5oz bag</label>
+                <div class="input-wrap"><span class="prefix">$</span><input type="number" data-product="chickpea" data-key="price5oz" value="4.50" step="0.05" inputmode="decimal"/></div>
+              </div>
+              <div class="input-row">
+                <label>1oz bag</label>
+                <div class="input-wrap"><span class="prefix">$</span><input type="number" data-product="chickpea" data-key="price1oz" value="1.78" step="0.05" inputmode="decimal"/></div>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <div class="group-title">◯ COST INPUTS</div>
+              <div class="input-row">
+                <label>Raw bean price</label>
+                <div class="input-wrap"><span class="prefix">$</span><input type="number" data-product="chickpea" data-key="rawLb" value="4.00" step="0.10" inputmode="decimal"/><span class="suffix">/lb</span></div>
+              </div>
+              <div class="input-row">
+                <label>Roasting weight loss</label>
+                <div class="input-wrap"><input type="number" data-product="chickpea" data-key="dehydration" value="50" step="1" min="0" max="80" inputmode="numeric"/><span class="suffix">%</span></div>
+              </div>
+              <div class="input-row">
+                <label>Pack — 5oz bag</label>
+                <div class="input-wrap"><span class="prefix">$</span><input type="number" data-product="chickpea" data-key="pack5oz" value="0.50" step="0.05" inputmode="decimal"/></div>
+              </div>
+              <div class="input-row">
+                <label>Pack — 1oz bag</label>
+                <div class="input-wrap"><span class="prefix">$</span><input type="number" data-product="chickpea" data-key="pack1oz" value="0.10" step="0.01" inputmode="decimal"/></div>
+              </div>
+            </div>
+
+            <button class="econ-reset" onclick="resetEconCard('chickpea')">↻ RESET DEFAULTS</button>
+          </div>
+
+          <!-- RIGHT: OUTPUTS -->
+          <div>
+            <div class="cost-breakdown">
+              <div class="breakdown-title">◯ PER-BAG COST (BEANS + PACK)</div>
+              <div class="cost-row">
+                <span>5oz bag</span>
+                <span class="vals">
+                  <span data-out="chickpea-cost5oz-bean">$2.50</span>
+                  <span class="plus">+</span>
+                  <span data-out="chickpea-cost5oz-pack">$0.50</span>
+                  <span class="eq">=</span>
+                  <span class="total" data-out="chickpea-cost5oz-total">$3.00</span>
+                </span>
+              </div>
+              <div class="cost-row">
+                <span>1oz bag</span>
+                <span class="vals">
+                  <span data-out="chickpea-cost1oz-bean">$0.50</span>
+                  <span class="plus">+</span>
+                  <span data-out="chickpea-cost1oz-pack">$0.10</span>
+                  <span class="eq">=</span>
+                  <span class="total" data-out="chickpea-cost1oz-total">$0.60</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="monthly-summary">
+              <div class="monthly-row">
+                <span class="lbl">MONTHLY REVENUE</span>
+                <span class="val" data-out="chickpea-revMonth">$24,552</span>
+              </div>
+              <div class="monthly-row">
+                <span class="lbl">MONTHLY COGS</span>
+                <span class="val" data-out="chickpea-cogsMonth">$15,840</span>
+              </div>
+              <div class="monthly-row margin">
+                <span class="lbl">GROSS MARGIN</span>
+                <span class="val" data-out="chickpea-marginPct">35.5%</span>
+              </div>
+            </div>
+
+            <div class="annual-summary">
+              <div class="annual-title">◯ ANNUAL (×12) — AMAZON-ONLY RUN RATE</div>
+              <div class="annual-row">
+                <div class="annual-lbl">REVENUE</div>
+                <div class="annual-val" data-out="chickpea-revYear">$294,624</div>
+              </div>
+              <div class="annual-row">
+                <div class="annual-lbl">COGS (BEANS + PACK)</div>
+                <div class="annual-val cogs" data-out="chickpea-cogsYear">$190,080</div>
+              </div>
+              <div class="annual-row big">
+                <div class="annual-lbl">GROSS MARGIN</div>
+                <div class="annual-val gm" data-out="chickpea-gmYear">$104,544</div>
+              </div>
+            </div>
+
+            <div class="target-callout">
+              <div class="target-icon">◎</div>
+              <div class="target-body">
+                To hit a <strong><span data-out="chickpea-targetPct">60</span>%</strong> gross margin, raw bean cost must stay at or below
+                <strong data-out="chickpea-targetMax">$2.40 / lb</strong>.
+              </div>
+              <div class="target-input-wrap">
+                <input type="number" data-product="chickpea" data-key="targetMargin" value="60" min="0" max="95" step="1" inputmode="numeric"/><span>%</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- EDAMAME CARD -->
+      <div class="econ-card" data-product="edamame">
+        <div class="econ-card-inner">
+
+          <!-- LEFT: INPUTS -->
+          <div>
+            <div class="econ-header">
+              <div class="econ-num">B</div>
+              <div>
+                <div class="econ-title-name">Edamame</div>
+                <div class="econ-title-sub">NEXT SKU · 1OZ-LED TRAVEL MIX</div>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <div class="group-title">◯ VOLUME &amp; MIX</div>
+              <div class="input-row">
+                <label>Units / month</label>
+                <div class="input-wrap"><input type="number" data-product="edamame" data-key="units" value="80000" step="1000" inputmode="numeric"/><span class="suffix">units</span></div>
+              </div>
+              <div class="input-row">
+                <label>% sold as 1oz</label>
+                <div class="input-wrap"><input type="number" data-product="edamame" data-key="pct1oz" value="80" step="1" min="0" max="100" inputmode="numeric"/><span class="suffix">%</span></div>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <div class="group-title">◯ RETAIL PRICING</div>
+              <div class="input-row">
+                <label>1oz bag</label>
+                <div class="input-wrap"><span class="prefix">$</span><input type="number" data-product="edamame" data-key="price1oz" value="1.15" step="0.05" inputmode="decimal"/></div>
+              </div>
+              <div class="input-row">
+                <label>5oz bag</label>
+                <div class="input-wrap"><span class="prefix">$</span><input type="number" data-product="edamame" data-key="price5oz" value="4.25" step="0.05" inputmode="decimal"/></div>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <div class="group-title">◯ COST INPUTS</div>
+              <div class="input-row">
+                <label>Raw bean price</label>
+                <div class="input-wrap"><span class="prefix">$</span><input type="number" data-product="edamame" data-key="rawLb" value="5.00" step="0.10" inputmode="decimal"/><span class="suffix">/lb</span></div>
+              </div>
+              <div class="input-row">
+                <label>Roasting weight loss</label>
+                <div class="input-wrap"><input type="number" data-product="edamame" data-key="dehydration" value="50" step="1" min="0" max="80" inputmode="numeric"/><span class="suffix">%</span></div>
+              </div>
+              <div class="input-row">
+                <label>Pack — 5oz bag</label>
+                <div class="input-wrap"><span class="prefix">$</span><input type="number" data-product="edamame" data-key="pack5oz" value="0.50" step="0.05" inputmode="decimal"/></div>
+              </div>
+              <div class="input-row">
+                <label>Pack — 1oz bag</label>
+                <div class="input-wrap"><span class="prefix">$</span><input type="number" data-product="edamame" data-key="pack1oz" value="0.10" step="0.01" inputmode="decimal"/></div>
+              </div>
+            </div>
+
+            <button class="econ-reset" onclick="resetEconCard('edamame')">↻ RESET DEFAULTS</button>
+          </div>
+
+          <!-- RIGHT: OUTPUTS -->
+          <div>
+            <div class="cost-breakdown">
+              <div class="breakdown-title">◯ PER-BAG COST (BEANS + PACK)</div>
+              <div class="cost-row">
+                <span>5oz bag</span>
+                <span class="vals">
+                  <span data-out="edamame-cost5oz-bean">$3.13</span>
+                  <span class="plus">+</span>
+                  <span data-out="edamame-cost5oz-pack">$0.50</span>
+                  <span class="eq">=</span>
+                  <span class="total" data-out="edamame-cost5oz-total">$3.63</span>
+                </span>
+              </div>
+              <div class="cost-row">
+                <span>1oz bag</span>
+                <span class="vals">
+                  <span data-out="edamame-cost1oz-bean">$0.63</span>
+                  <span class="plus">+</span>
+                  <span data-out="edamame-cost1oz-pack">$0.10</span>
+                  <span class="eq">=</span>
+                  <span class="total" data-out="edamame-cost1oz-total">$0.73</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="monthly-summary">
+              <div class="monthly-row">
+                <span class="lbl">MONTHLY REVENUE</span>
+                <span class="val" data-out="edamame-revMonth">$141,600</span>
+              </div>
+              <div class="monthly-row">
+                <span class="lbl">MONTHLY COGS</span>
+                <span class="val" data-out="edamame-cogsMonth">$104,400</span>
+              </div>
+              <div class="monthly-row margin">
+                <span class="lbl">GROSS MARGIN</span>
+                <span class="val" data-out="edamame-marginPct">26.3%</span>
+              </div>
+            </div>
+
+            <div class="annual-summary">
+              <div class="annual-title">◯ ANNUAL (×12) — AMAZON-ONLY RUN RATE</div>
+              <div class="annual-row">
+                <div class="annual-lbl">REVENUE</div>
+                <div class="annual-val" data-out="edamame-revYear">$1,699,200</div>
+              </div>
+              <div class="annual-row">
+                <div class="annual-lbl">COGS (BEANS + PACK)</div>
+                <div class="annual-val cogs" data-out="edamame-cogsYear">$1,252,800</div>
+              </div>
+              <div class="annual-row big">
+                <div class="annual-lbl">GROSS MARGIN</div>
+                <div class="annual-val gm" data-out="edamame-gmYear">$446,400</div>
+              </div>
+            </div>
+
+            <div class="target-callout">
+              <div class="target-icon">◎</div>
+              <div class="target-body">
+                To hit a <strong><span data-out="edamame-targetPct">60</span>%</strong> gross margin, raw bean cost must stay at or below
+                <strong data-out="edamame-targetMax">$2.40 / lb</strong>.
+              </div>
+              <div class="target-input-wrap">
+                <input type="number" data-product="edamame" data-key="targetMargin" value="60" min="0" max="95" step="1" inputmode="numeric"/><span>%</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1346,6 +1902,148 @@
   };
 
   renderSupplierTable();
+
+  // ============================================================
+  // UNIT ECONOMICS — live margin calculator
+  // ============================================================
+  const ECON_DEFAULTS = {
+    chickpea: {
+      units: 6000, pct5oz: 85, price5oz: 4.50, price1oz: 1.78,
+      rawLb: 4.00, dehydration: 50, pack5oz: 0.50, pack1oz: 0.10,
+      targetMargin: 60
+    },
+    edamame: {
+      units: 80000, pct1oz: 80, price5oz: 4.25, price1oz: 1.15,
+      rawLb: 5.00, dehydration: 50, pack5oz: 0.50, pack1oz: 0.10,
+      targetMargin: 60
+    }
+  };
+
+  const econState = JSON.parse(JSON.stringify(ECON_DEFAULTS));
+  const fmtUSD = (n, decimals = 0) => '$' + (isFinite(n) ? n : 0).toLocaleString('en-US', {
+    minimumFractionDigits: decimals, maximumFractionDigits: decimals
+  });
+  const fmtPct = (n) => (isFinite(n) ? n : 0).toFixed(1) + '%';
+
+  function calcEcon(product) {
+    const s = econState[product];
+    // Mix
+    const pct5oz = product === 'chickpea' ? s.pct5oz : (100 - s.pct1oz);
+    const units5oz = s.units * (pct5oz / 100);
+    const units1oz = s.units - units5oz;
+
+    // Bean cost per FINISHED oz (raw $/lb × 1lb/16oz × 1/(1-loss))
+    // Equivalent: $/lb / (16 × (1 - lossPct/100))
+    const lossFrac = s.dehydration / 100;
+    const finishedOzPerRawLb = 16 * (1 - lossFrac);
+    const beanPerFinishedOz = finishedOzPerRawLb > 0 ? s.rawLb / finishedOzPerRawLb : 0;
+
+    // Per-bag costs
+    const cost5ozBean = beanPerFinishedOz * 5;
+    const cost1ozBean = beanPerFinishedOz * 1;
+    const cost5ozTotal = cost5ozBean + s.pack5oz;
+    const cost1ozTotal = cost1ozBean + s.pack1oz;
+
+    // Monthly
+    const revMonth = units5oz * s.price5oz + units1oz * s.price1oz;
+    const cogsMonth = units5oz * cost5ozTotal + units1oz * cost1ozTotal;
+    const gmMonth = revMonth - cogsMonth;
+    const marginPct = revMonth > 0 ? (gmMonth / revMonth) * 100 : 0;
+
+    // Annual
+    const revYear = revMonth * 12;
+    const cogsYear = cogsMonth * 12;
+    const gmYear = gmMonth * 12;
+
+    // Back-solve: max raw $/lb to hit target margin
+    // Target COGS = Rev × (1 - M/100)
+    // COGS = beanPerFinishedOz × (5×u5 + 1×u1) + u5×pk5 + u1×pk1
+    // beanPerFinishedOz = (TargetCOGS − fixed packaging cost) / (5×u5 + u1)
+    // Then rawLb_max = beanPerFinishedOz × 16 × (1 − loss)
+    const targetCOGS = revMonth * (1 - s.targetMargin / 100);
+    const fixedPack = units5oz * s.pack5oz + units1oz * s.pack1oz;
+    const beanWeight = 5 * units5oz + 1 * units1oz;
+    let targetMaxRawLb = 0;
+    if (beanWeight > 0) {
+      const beanPerOzCeiling = (targetCOGS - fixedPack) / beanWeight;
+      targetMaxRawLb = beanPerOzCeiling * finishedOzPerRawLb;
+    }
+
+    return {
+      cost5ozBean, cost5ozPack: s.pack5oz, cost5ozTotal,
+      cost1ozBean, cost1ozPack: s.pack1oz, cost1ozTotal,
+      revMonth, cogsMonth, marginPct,
+      revYear, cogsYear, gmYear,
+      targetMaxRawLb, targetPct: s.targetMargin
+    };
+  }
+
+  function setOut(key, value) {
+    const el = document.querySelector(`[data-out="${key}"]`);
+    if (el) el.textContent = value;
+  }
+
+  function applyMarginColor(product, marginPct) {
+    const card = document.querySelector(`.econ-card[data-product="${product}"]`);
+    if (!card) return;
+    const marginEl = card.querySelector('.monthly-row.margin .val');
+    if (!marginEl) return;
+    marginEl.classList.remove('healthy', 'warning', 'critical');
+    if (marginPct >= 60) marginEl.classList.add('healthy');
+    else if (marginPct >= 40) marginEl.classList.add('warning');
+    else marginEl.classList.add('critical');
+  }
+
+  function renderEcon(product) {
+    const r = calcEcon(product);
+    setOut(`${product}-cost5oz-bean`, fmtUSD(r.cost5ozBean, 2));
+    setOut(`${product}-cost5oz-pack`, fmtUSD(r.cost5ozPack, 2));
+    setOut(`${product}-cost5oz-total`, fmtUSD(r.cost5ozTotal, 2));
+    setOut(`${product}-cost1oz-bean`, fmtUSD(r.cost1ozBean, 2));
+    setOut(`${product}-cost1oz-pack`, fmtUSD(r.cost1ozPack, 2));
+    setOut(`${product}-cost1oz-total`, fmtUSD(r.cost1ozTotal, 2));
+    setOut(`${product}-revMonth`, fmtUSD(r.revMonth));
+    setOut(`${product}-cogsMonth`, fmtUSD(r.cogsMonth));
+    setOut(`${product}-marginPct`, fmtPct(r.marginPct));
+    setOut(`${product}-revYear`, fmtUSD(r.revYear));
+    setOut(`${product}-cogsYear`, fmtUSD(r.cogsYear));
+    setOut(`${product}-gmYear`, fmtUSD(r.gmYear));
+    setOut(`${product}-targetPct`, r.targetPct);
+    setOut(`${product}-targetMax`, r.targetMaxRawLb > 0
+      ? fmtUSD(r.targetMaxRawLb, 2) + ' / lb'
+      : 'unachievable at current price/mix');
+    applyMarginColor(product, r.marginPct);
+  }
+
+  function renderAllEcon() {
+    renderEcon('chickpea');
+    renderEcon('edamame');
+  }
+
+  // Wire up inputs
+  document.querySelectorAll('.economics-section input[data-product]').forEach(input => {
+    input.addEventListener('input', () => {
+      const product = input.dataset.product;
+      const key = input.dataset.key;
+      const value = parseFloat(input.value);
+      if (!isNaN(value)) {
+        econState[product][key] = value;
+      } else if (input.value === '') {
+        econState[product][key] = 0;
+      }
+      renderEcon(product);
+    });
+  });
+
+  window.resetEconCard = function(product) {
+    econState[product] = JSON.parse(JSON.stringify(ECON_DEFAULTS[product]));
+    document.querySelectorAll(`.economics-section input[data-product="${product}"]`).forEach(input => {
+      input.value = econState[product][input.dataset.key];
+    });
+    renderEcon(product);
+  };
+
+  renderAllEcon();
 
   render();
 </script>
