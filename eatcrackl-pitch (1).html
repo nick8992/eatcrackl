@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Crackl — playful, clean-label roasted chickpea snacks. 7g protein, 6g fiber, zero seed oils." />
+<title>Crackl — Brand Pitch Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #FAF5EC;
+    --cream-deep: #EFE5D0;
+    --char: #1F1A17;
+    --char-soft: rgba(31, 26, 23, 0.65);
+    --char-faint: rgba(31, 26, 23, 0.1);
+
+    --flavor: #C84B1F;
+    --flavor-light: #E8704A;
+    --flavor-deep: #9A3914;
+    --flavor-name: 'BBQ';
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--char);
+    font-family: 'Hanken Grotesk', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; }
+  button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+  a { color: inherit; text-decoration: none; }
+
+  .fred { font-family: 'Fredoka', sans-serif; }
+  .mono { font-family: 'DM Mono', monospace; }
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- NAV ---------- */
+  nav.top {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250, 245, 236, 0.86); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--char-faint);
+  }
+  nav.top .inner {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 0;
+  }
+  .logo {
+    font-family: 'Fredoka'; font-weight: 700; font-size: 26px; letter-spacing: -1px;
+  }
+  .logo .dot { color: var(--flavor); transition: color 0.4s ease; }
+  .nav-meta {
+    font-family: 'DM Mono'; font-size: 10px; letter-spacing: 1.5px;
+    color: var(--char-soft);
+  }
+
+  /* ---------- SECTION LABEL ---------- */
+  .label {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 36px;
+    font-family: 'DM Mono'; font-size: 11px; letter-spacing: 2px;
+  }
+  .label::before {
+    content: ''; display: block; width: 32px; height: 1px; background: var(--char);
+  }
+  .label.light::before { background: var(--cream); }
+  .label.light { color: var(--cream); }
+
+  /* ---------- HERO ---------- */
+  .hero { position: relative; padding: 80px 0 100px; overflow: hidden; }
+  .grain {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(31,26,23,0.06) 1px, transparent 1px);
+    background-size: 4px 4px; opacity: 0.5; pointer-events: none;
+  }
+  .hero .meta-line {
+    font-family: 'DM Mono'; font-size: 11px; letter-spacing: 2.5px;
+    color: var(--char-soft); margin-bottom: 32px;
+  }
+  .hero h1 {
+    font-family: 'Fredoka'; font-weight: 700;
+    font-size: clamp(80px, 16vw, 240px); letter-spacing: -6px; line-height: 0.88;
+  }
+  .hero h1 .accent { color: var(--flavor); transition: color 0.5s ease; }
+  .hero .tagline {
+    font-family: 'Fredoka'; font-weight: 500;
+    font-size: clamp(22px, 3vw, 38px); line-height: 1.1; margin-top: 28px;
+  }
+  .hero .lede {
+    max-width: 640px; font-size: 17px; line-height: 1.65;
+    color: var(--char-soft); margin-top: 32px;
+  }
+
+  /* ---------- MARQUEE ---------- */
+  .ticker {
+    background: var(--char); color: var(--cream);
+    padding: 16px 0; overflow: hidden; position: relative;
+  }
+  .ticker-track {
+    display: flex; gap: 48px; width: max-content;
+    font-family: 'DM Mono'; font-size: 13px; letter-spacing: 3px;
+    animation: tick 40s linear infinite;
+    white-space: nowrap;
+  }
+  @keyframes tick {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ---------- POSITIONING ---------- */
+  .positioning { padding: 120px 0; }
+  .positioning .grid { display: grid; gap: 64px; }
+  @media (min-width: 900px) { .positioning .grid { grid-template-columns: 1fr 1fr; align-items: end; } }
+  .positioning h2 {
+    font-family: 'Fredoka'; font-weight: 600;
+    font-size: clamp(40px, 6vw, 80px); letter-spacing: -2px; line-height: 0.95;
+  }
+  .positioning .body { font-size: 17px; line-height: 1.7; color: var(--char-soft); max-width: 540px; }
+  .positioning .body p + p { margin-top: 18px; }
+
+  /* ---------- WORDMARK ---------- */
+  .wordmark-section { padding: 100px 0; }
+  .wordmark-section .grid {
+    display: grid; gap: 64px; align-items: center;
+  }
+  @media (min-width: 900px) { .wordmark-section .grid { grid-template-columns: 1fr 1fr; } }
+  .wordmark-section h2 {
+    font-family: 'Fredoka'; font-weight: 600;
+    font-size: clamp(36px, 5vw, 60px); letter-spacing: -2px; line-height: 1;
+  }
+  .wordmark-section .body {
+    margin-top: 28px; font-size: 16px; line-height: 1.65;
+    color: var(--char-soft); max-width: 460px;
+  }
+  .logos { display: flex; flex-direction: column; gap: 36px; align-items: flex-end; }
+  .logo-big-1 {
+    font-family: 'Fredoka'; font-weight: 700; font-size: clamp(80px, 12vw, 140px);
+    letter-spacing: -5px; line-height: 0.9;
+  }
+  .logo-big-1 .accent { color: var(--flavor); transition: color 0.5s ease; }
+  .logo-mid {
+    font-family: 'Fredoka'; font-weight: 500; font-size: 60px;
+    letter-spacing: -2px; color: var(--flavor); transition: color 0.5s ease;
+  }
+  .logo-pill {
+    padding: 14px 28px; border-radius: 999px;
+    background: var(--char); color: var(--cream);
+    font-family: 'Fredoka'; font-weight: 700; font-size: 32px;
+    letter-spacing: -1px;
+  }
+
+  /* ---------- PALETTE ---------- */
+  .palette-section { padding: 100px 0; }
+  .palette-grid {
+    display: grid; gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 700px) { .palette-grid { grid-template-columns: repeat(5, 1fr); } }
+  .swatch .chip {
+    aspect-ratio: 1 / 1; border-radius: 20px;
+  }
+  .swatch .chip.bordered { border: 1px solid var(--char-faint); }
+  .swatch .name {
+    font-family: 'Fredoka'; font-weight: 600; font-size: 20px; margin-top: 14px;
+  }
+  .swatch .hex {
+    font-family: 'DM Mono'; font-size: 10px; letter-spacing: 1.2px;
+    color: var(--char-soft); margin-top: 4px;
+  }
+  .swatch .role { font-size: 13px; color: var(--char-soft); margin-top: 2px; }
+
+  /* ---------- TYPOGRAPHY ---------- */
+  .type-section { padding: 100px 0; }
+  .type-grid { display: grid; gap: 48px; }
+  @media (min-width: 800px) { .type-grid { grid-template-columns: repeat(3, 1fr); } }
+  .type-card .caption {
+    font-family: 'DM Mono'; font-size: 10px; letter-spacing: 1.5px;
+    color: var(--char-soft); margin-bottom: 12px;
+  }
+  .type-card .display { font-size: 60px; line-height: 1; font-weight: 700; }
+  .type-card .sample { font-size: 18px; margin-top: 10px; }
+  .type-card .desc {
+    margin-top: 18px; font-size: 14px; line-height: 1.65;
+    color: var(--char-soft);
+  }
+
+  /* ---------- FLAVORS ---------- */
+  .flavor-section { padding: 100px 0 0; }
+  .flavor-grid { display: grid; grid-template-columns: 1fr; }
+  @media (min-width: 800px) { .flavor-grid { grid-template-columns: repeat(3, 1fr); } }
+  .flavor-card {
+    text-align: left; padding: 56px 40px; min-height: 360px;
+    color: var(--cream); position: relative;
+    transition: outline 0.2s ease;
+    outline: 0 solid var(--char);
+    cursor: pointer;
+  }
+  .flavor-card.active {
+    outline: 4px solid var(--char); outline-offset: -16px;
+  }
+  .flavor-card[data-flavor='bbq']      { background: #C84B1F; }
+  .flavor-card[data-flavor='spicy']    { background: #DC3545; }
+  .flavor-card[data-flavor='seasalt']  { background: #3F8AAB; }
+  .flavor-card .num {
+    font-family: 'DM Mono'; font-size: 12px; letter-spacing: 2px; opacity: 0.85;
+  }
+  .flavor-card .big {
+    font-family: 'Fredoka'; font-weight: 700; font-size: clamp(40px, 6vw, 80px);
+    letter-spacing: -1.5px; line-height: 0.95; margin-top: 24px;
+  }
+  .flavor-card .desc {
+    font-family: 'Fredoka'; font-weight: 500; font-style: italic;
+    font-size: 20px; margin-top: 16px; opacity: 0.96;
+  }
+  .flavor-card .notes {
+    font-family: 'DM Mono'; font-size: 11px; letter-spacing: 0.7px;
+    line-height: 1.7; margin-top: 28px; opacity: 0.9;
+  }
+  .flavor-card .pill {
+    font-family: 'DM Mono'; font-size: 9px; letter-spacing: 1.6px;
+    margin-top: 28px; opacity: 0.85;
+  }
+
+  /* ---------- PACKAGING ---------- */
+  .packaging {
+    background: var(--char); color: var(--cream); padding: 100px 0;
+  }
+  .packaging h2 {
+    font-family: 'Fredoka'; font-weight: 600;
+    font-size: clamp(40px, 6vw, 72px); letter-spacing: -2px; line-height: 1;
+  }
+  .packaging h2 .accent { color: var(--flavor-light); transition: color 0.5s ease; }
+  .packaging .intro {
+    margin-top: 28px; font-size: 17px; line-height: 1.65;
+    color: rgba(250, 245, 236, 0.7); max-width: 560px;
+  }
+  .controls {
+    margin-top: 48px; display: grid; gap: 36px;
+    background: rgba(250, 245, 236, 0.04);
+    border: 1px solid rgba(250, 245, 236, 0.15);
+    border-radius: 24px; padding: 36px;
+  }
+  @media (min-width: 800px) { .controls { grid-template-columns: 1fr 1fr; } }
+  .ctrl-block .ctrl-label {
+    font-family: 'DM Mono'; font-size: 10px; letter-spacing: 2px;
+    color: rgba(250, 245, 236, 0.6); margin-bottom: 14px;
+  }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill-btn {
+    padding: 9px 18px; border-radius: 999px;
+    border: 1px solid rgba(250, 245, 236, 0.25);
+    font-family: 'DM Mono'; font-size: 10px; letter-spacing: 1.4px;
+    color: var(--cream); background: transparent;
+    transition: all 0.2s ease;
+  }
+  .pill-btn:hover { border-color: rgba(250, 245, 236, 0.5); }
+  .pill-btn.active { background: var(--cream); color: var(--char); border-color: var(--cream); }
+  .pill-btn.active[data-flavor='bbq']     { background: #C84B1F; color: var(--cream); border-color: #C84B1F; }
+  .pill-btn.active[data-flavor='spicy']   { background: #DC3545; color: var(--cream); border-color: #DC3545; }
+  .pill-btn.active[data-flavor='seasalt'] { background: #3F8AAB; color: var(--cream); border-color: #3F8AAB; }
+  .tagline-col { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
+  .tag-btn {
+    text-align: left; padding: 10px 18px; border-radius: 14px;
+    border: 1px solid rgba(250, 245, 236, 0.18);
+    font-family: 'Fredoka'; font-style: italic; font-weight: 500; font-size: 14px;
+    color: var(--cream); background: transparent;
+    transition: all 0.2s ease;
+  }
+  .tag-btn.active { background: var(--cream); color: var(--char); border-color: var(--cream); }
+
+  .bags-row {
+    margin-top: 56px;
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-end;
+    gap: 48px;
+  }
+  .bag-wrap { display: flex; flex-direction: column; align-items: center; }
+  .bag-caption {
+    margin-top: 18px;
+    font-family: 'DM Mono'; font-size: 10px; letter-spacing: 2px;
+    color: rgba(250, 245, 236, 0.6);
+  }
+  .bag-hide { display: none; }
+
+  /* ---------- DESIGN DIRECTIONS ---------- */
+  .directions { padding: 120px 0; }
+  .directions h2 {
+    font-family: 'Fredoka'; font-weight: 600;
+    font-size: clamp(40px, 6vw, 80px); letter-spacing: -2px; line-height: 0.95;
+  }
+  .directions .intro { font-size: 17px; line-height: 1.65; color: var(--char-soft); max-width: 560px; }
+  .directions .head {
+    display: grid; gap: 32px; align-items: end; margin-bottom: 64px;
+  }
+  @media (min-width: 800px) { .directions .head { grid-template-columns: 1fr 1fr; } }
+  .v-grid {
+    display: grid; gap: 56px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 800px) { .v-grid { grid-template-columns: 1fr 1fr; gap: 64px 40px; } }
+  .v-card {
+    display: flex; flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .v-card:hover { transform: translateY(-6px); }
+  .v-frame {
+    border-radius: 20px; overflow: hidden;
+    border: 1px solid var(--char-faint); background: #FFFFFF;
+    box-shadow: 0 12px 32px rgba(31, 26, 23, 0.06);
+  }
+  .v-frame img { width: 100%; height: auto; }
+  .v-meta { margin-top: 22px; }
+  .v-code {
+    font-family: 'DM Mono'; font-size: 10px; letter-spacing: 2px;
+    color: rgba(31, 26, 23, 0.5);
+  }
+  .v-name {
+    font-family: 'Fredoka'; font-weight: 600; font-size: 24px;
+    letter-spacing: -0.5px; margin-top: 6px;
+  }
+  .v-tag {
+    margin-top: 8px; font-size: 14.5px; line-height: 1.6;
+    color: var(--char-soft); max-width: 480px;
+  }
+
+  /* ---------- NUMBERS ---------- */
+  .numbers-section { padding: 100px 0; }
+  .numbers-grid { display: grid; gap: 18px; grid-template-columns: 1fr; }
+  @media (min-width: 700px) { .numbers-grid { grid-template-columns: repeat(3, 1fr); } }
+  .number-card {
+    padding: 48px; border-radius: 28px;
+    background: var(--char); color: var(--cream);
+  }
+  .number-card .big {
+    font-family: 'Fredoka'; font-weight: 700; font-size: clamp(80px, 12vw, 140px);
+    letter-spacing: -4px; line-height: 1;
+  }
+  .number-card .lab {
+    font-family: 'Fredoka'; font-weight: 600; font-size: 28px;
+    letter-spacing: -0.5px; margin-top: 18px;
+  }
+  .number-card .sub {
+    font-family: 'DM Mono'; font-size: 10px; letter-spacing: 2px;
+    color: rgba(250, 245, 236, 0.6); margin-top: 8px;
+  }
+
+  /* ---------- FOOTER (CREAM) ---------- */
+  footer {
+    background: var(--cream); color: var(--char);
+    padding: 80px 0 48px;
+    border-top: 1px solid var(--char-faint);
+  }
+  footer .big {
+    font-family: 'Fredoka'; font-weight: 700;
+    font-size: clamp(70px, 12vw, 180px); letter-spacing: -7px; line-height: 0.88;
+  }
+  footer .big .dot { color: var(--flavor); transition: color 0.5s ease; }
+  footer .row {
+    margin-top: 36px;
+    display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end;
+    gap: 24px;
+  }
+  footer .row .left .meta {
+    font-family: 'DM Mono'; font-size: 11px; letter-spacing: 2px;
+    color: var(--char-soft);
+  }
+  footer .row .left .tag {
+    font-family: 'Fredoka'; font-style: italic; font-weight: 500;
+    font-size: 22px; margin-top: 6px;
+  }
+  footer .row .right {
+    font-family: 'DM Mono'; font-size: 10px; letter-spacing: 1.5px;
+    color: var(--char-soft);
+  }
+
+  /* ---------- SIZE TOGGLE (per card) ---------- */
+  .size-toggle {
+    position: absolute; top: 14px; right: 14px;
+    display: inline-flex; align-items: center;
+    background: rgba(31, 26, 23, 0.85); backdrop-filter: blur(8px);
+    border-radius: 999px; padding: 4px; gap: 2px;
+    z-index: 5;
+  }
+  .size-toggle button {
+    padding: 7px 14px; border-radius: 999px;
+    font-family: 'DM Mono'; font-size: 9px; letter-spacing: 1.4px;
+    color: rgba(250, 245, 236, 0.6); background: transparent;
+    transition: all 0.18s ease;
+  }
+  .size-toggle button.active {
+    background: var(--cream); color: var(--char);
+  }
+  .v-frame { position: relative; }
+  .v-frame img { transition: opacity 0.25s ease; }
+  .v-frame img.fade-out { opacity: 0.3; }
+
+  /* ---------- ORIGIN STORY (DARK) ---------- */
+  .origin-section {
+    background: var(--char); color: var(--cream);
+    padding: 120px 0; position: relative; overflow: hidden;
+  }
+  .origin-section .label.light::before { background: var(--cream); }
+  .origin-section h2 {
+    font-family: 'Fredoka'; font-weight: 700;
+    font-size: clamp(44px, 7vw, 88px); letter-spacing: -2.5px; line-height: 0.95;
+    margin-top: 24px;
+  }
+  .origin-section h2 .accent {
+    font-family: 'Fraunces'; font-style: italic; font-weight: 500;
+    color: var(--bbq-light, #E8704A);
+  }
+  .origin-section .origin-grid {
+    display: grid; gap: 56px; margin-top: 56px;
+  }
+  @media (min-width: 900px) {
+    .origin-section .origin-grid { grid-template-columns: 1.1fr 1fr; align-items: start; }
+  }
+  .origin-section .body p {
+    font-size: 17px; line-height: 1.7;
+    color: rgba(250, 245, 236, 0.78);
+  }
+  .origin-section .body p + p { margin-top: 20px; }
+  .origin-section .body strong { color: var(--cream); font-weight: 600; }
+  .origin-section .quote-card {
+    background: rgba(250, 245, 236, 0.05);
+    border: 1px solid rgba(250, 245, 236, 0.12);
+    border-radius: 18px; padding: 36px 32px;
+  }
+  .origin-section .quote-card .pin {
+    font-family: 'DM Mono'; font-size: 10px; letter-spacing: 1.8px;
+    color: rgba(250, 245, 236, 0.55); margin-bottom: 16px;
+  }
+  .origin-section .quote-card .quote {
+    font-family: 'Fraunces'; font-style: italic; font-weight: 400;
+    font-size: 22px; line-height: 1.4; color: var(--cream);
+  }
+  .origin-section .quote-card .quote::before {
+    content: '\201C'; font-size: 48px; line-height: 0; vertical-align: -16px;
+    color: rgba(250, 245, 236, 0.35); margin-right: 4px;
+  }
+  .origin-section .quote-card .quote::after {
+    content: '\201D'; font-size: 48px; line-height: 0; vertical-align: -16px;
+    color: rgba(250, 245, 236, 0.35); margin-left: 2px;
+  }
+  .origin-section .quote-card .pillars {
+    margin-top: 28px; padding-top: 24px;
+    border-top: 1px solid rgba(250, 245, 236, 0.12);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px;
+  }
+  .origin-section .quote-card .pillar .name {
+    font-family: 'Fredoka'; font-weight: 600; font-size: 14px; color: var(--cream);
+  }
+  .origin-section .quote-card .pillar .desc {
+    font-family: 'DM Mono'; font-size: 10px; letter-spacing: 1.2px;
+    color: rgba(250, 245, 236, 0.6); margin-top: 4px; line-height: 1.5;
+  }
+
+  /* ---------- MARKETING ANGLES (CREAM) ---------- */
+  .angles-section { padding: 120px 0; }
+  .angles-section .head { max-width: 760px; }
+  .angles-section h2 {
+    font-family: 'Fredoka'; font-weight: 700;
+    font-size: clamp(44px, 7vw, 88px); letter-spacing: -2.5px; line-height: 0.95;
+    margin-top: 24px;
+  }
+  .angles-section h2 .accent {
+    font-family: 'Fraunces'; font-style: italic; font-weight: 500;
+    color: var(--flavor);
+  }
+  .angles-section .intro {
+    margin-top: 24px; font-size: 17px; line-height: 1.65;
+    color: var(--char-soft); max-width: 560px;
+  }
+  .angles-grid {
+    margin-top: 56px;
+    display: grid; gap: 16px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 720px) { .angles-grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1100px) { .angles-grid { grid-template-columns: 1fr 1fr 1fr; } }
+  .angle-card {
+    background: var(--cream); border: 1px solid rgba(31, 26, 23, 0.12);
+    border-radius: 18px; padding: 32px 28px 28px;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    display: flex; flex-direction: column; min-height: 280px;
+  }
+  .angle-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--char);
+    box-shadow: 0 14px 36px -16px rgba(31, 26, 23, 0.25);
+  }
+  .angle-card .num {
+    font-family: 'DM Mono'; font-size: 11px; letter-spacing: 1.8px;
+    color: var(--char-mute, rgba(31, 26, 23, 0.5));
+  }
+  .angle-card .name {
+    font-family: 'Fredoka'; font-weight: 700; font-size: 22px;
+    letter-spacing: -0.5px; line-height: 1.15;
+    margin-top: 14px; color: var(--char);
+  }
+  .angle-card .name .italic {
+    font-family: 'Fraunces'; font-style: italic; font-weight: 500;
+  }
+  .angle-card .copy {
+    font-size: 14px; line-height: 1.55;
+    color: var(--char-soft); margin-top: 12px;
+  }
+  .angle-card .campaign {
+    margin-top: auto; padding-top: 20px;
+    border-top: 1px dashed rgba(31, 26, 23, 0.18);
+  }
+  .angle-card .campaign .lbl {
+    font-family: 'DM Mono'; font-size: 9px; letter-spacing: 1.5px;
+    color: var(--char-mute, rgba(31, 26, 23, 0.5));
+  }
+  .angle-card .campaign .name-c {
+    font-family: 'Fredoka'; font-weight: 600; font-size: 14px;
+    color: var(--char); margin-top: 6px;
+  }
+  .angle-card .campaign .name-c::before {
+    content: '\201C'; opacity: 0.4;
+  }
+  .angle-card .campaign .name-c::after {
+    content: '\201D'; opacity: 0.4;
+  }
+
+  /* ---------- WHOLESALE SOURCING (DARK + EDITABLE TABLE) ---------- */
+  .sourcing-section {
+    background: var(--char); color: var(--cream);
+    padding: 120px 0; position: relative; overflow: hidden;
+  }
+  .sourcing-section .label.light::before { background: var(--cream); }
+  .sourcing-section h2 {
+    font-family: 'Fredoka'; font-weight: 700;
+    font-size: clamp(44px, 7vw, 88px); letter-spacing: -2.5px; line-height: 0.95;
+    margin-top: 24px;
+  }
+  .sourcing-section h2 .accent {
+    font-family: 'Fraunces'; font-style: italic; font-weight: 500;
+    color: #F5C842;
+  }
+  .sourcing-section .intro {
+    margin-top: 24px; font-size: 17px; line-height: 1.65;
+    color: rgba(250, 245, 236, 0.75); max-width: 660px;
+  }
+  .sourcing-section .table-meta {
+    margin-top: 40px;
+    display: flex; flex-wrap: wrap; gap: 12px 24px;
+    align-items: center; justify-content: space-between;
+  }
+  .sourcing-section .legend {
+    display: flex; gap: 24px; flex-wrap: wrap;
+    font-family: 'DM Mono'; font-size: 10px; letter-spacing: 1.4px;
+    color: rgba(250, 245, 236, 0.6);
+  }
+  .sourcing-section .legend .dot {
+    display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+    background: #F5C842; margin-right: 6px; vertical-align: 1px;
+  }
+  .sourcing-section .legend .dot.locked { background: rgba(250, 245, 236, 0.35); }
+  .sourcing-section .reset-btn {
+    font-family: 'DM Mono'; font-size: 10px; letter-spacing: 1.4px;
+    color: rgba(250, 245, 236, 0.55);
+    padding: 8px 14px; border-radius: 999px;
+    background: transparent;
+    border: 1px solid rgba(250, 245, 236, 0.2);
+    transition: all 0.2s ease;
+  }
+  .sourcing-section .reset-btn:hover {
+    color: var(--cream);
+    border-color: rgba(250, 245, 236, 0.5);
+  }
+  .sourcing-section .table-wrap {
+    margin-top: 24px;
+    background: rgba(250, 245, 236, 0.03);
+    border: 1px solid rgba(250, 245, 236, 0.12);
+    border-radius: 14px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .supplier-table {
+    width: 100%;
+    border-collapse: separate; border-spacing: 0;
+    min-width: 880px;
+    font-family: 'Hanken Grotesk', sans-serif;
+  }
+  .supplier-table thead th {
+    background: rgba(250, 245, 236, 0.06);
+    font-family: 'DM Mono', monospace; font-weight: 500;
+    font-size: 10px; letter-spacing: 1.6px;
+    color: rgba(250, 245, 236, 0.65);
+    text-align: left;
+    padding: 16px 16px;
+    border-bottom: 1px solid rgba(250, 245, 236, 0.12);
+    text-transform: uppercase;
+    white-space: nowrap;
+    position: sticky; top: 0;
+  }
+  .supplier-table thead th .editable-mark {
+    color: #F5C842; margin-left: 4px;
+  }
+  .supplier-table tbody tr {
+    transition: background 0.15s ease;
+  }
+  .supplier-table tbody tr:hover {
+    background: rgba(250, 245, 236, 0.03);
+  }
+  .supplier-table tbody tr.section-header td {
+    background: rgba(250, 245, 236, 0.08);
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: 13px; letter-spacing: 0.5px;
+    color: var(--cream);
+    padding: 14px 16px;
+    border-top: 1px solid rgba(250, 245, 236, 0.18);
+    border-bottom: 1px solid rgba(250, 245, 236, 0.18);
+    text-transform: uppercase;
+  }
+  .supplier-table tbody td {
+    padding: 14px 16px;
+    font-size: 13px; line-height: 1.4;
+    color: rgba(250, 245, 236, 0.88);
+    border-bottom: 1px solid rgba(250, 245, 236, 0.07);
+    vertical-align: top;
+  }
+  .supplier-table .locked {
+    color: rgba(250, 245, 236, 0.95);
+  }
+  .supplier-table .locked .name {
+    font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 14px;
+    color: var(--cream); letter-spacing: -0.3px;
+    display: block;
+  }
+  .supplier-table .locked .meta {
+    font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1.2px;
+    color: rgba(250, 245, 236, 0.5); margin-top: 4px;
+    text-transform: uppercase;
+  }
+  .supplier-table .editable {
+    background: transparent;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+    cursor: text;
+    border-radius: 6px;
+    outline: none;
+    position: relative;
+    min-width: 80px;
+  }
+  .supplier-table .editable:hover {
+    background: rgba(245, 200, 66, 0.06);
+  }
+  .supplier-table .editable:focus {
+    background: rgba(245, 200, 66, 0.12);
+    box-shadow: inset 0 0 0 1px rgba(245, 200, 66, 0.6);
+  }
+  .supplier-table .editable:empty::before {
+    content: attr(data-placeholder);
+    color: rgba(250, 245, 236, 0.28);
+    font-style: italic;
+    pointer-events: none;
+  }
+  .supplier-table .editable.has-value {
+    color: #F5C842;
+  }
+  .sourcing-section .save-indicator {
+    position: fixed; bottom: 24px; right: 24px;
+    padding: 10px 18px;
+    background: rgba(31, 26, 23, 0.95); color: #F5C842;
+    border: 1px solid rgba(245, 200, 66, 0.4);
+    border-radius: 999px;
+    font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.4px;
+    opacity: 0; transform: translateY(8px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+    z-index: 50;
+  }
+  .sourcing-section .save-indicator.show {
+    opacity: 1; transform: translateY(0);
+  }
+
+  /* ---------- ANIM ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top">
+  <div class="wrap inner">
+    <div class="logo">Crackl<span class="dot">.</span></div>
+    <div class="nav-meta">BRAND PITCH · V1</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="grain"></div>
+  <div class="wrap">
+    <div class="meta-line">EAT·CRACKL·COM —— ROASTED CHICKPEA SNACKS</div>
+    <h1>Crack<span class="accent">l</span><span class="accent">.</span></h1>
+    <div class="tagline" id="hero-tagline">Snack with a Crackl.</div>
+    <p class="lede">
+      A playful, clean-label chickpea snack. 7g protein. 6g fiber. Three loud flavors,
+      zero of the stuff you'd rather skip. Built for people who actually read ingredient lists.
+    </p>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>USDA ORGANIC ✦ 7G PROTEIN ✦ 6G FIBER ✦ NON-GMO ✦ VEGAN ✦ GLUTEN FREE ✦ SEED OIL FREE ✦</span>
+    <span>USDA ORGANIC ✦ 7G PROTEIN ✦ 6G FIBER ✦ NON-GMO ✦ VEGAN ✦ GLUTEN FREE ✦ SEED OIL FREE ✦</span>
+    <span>USDA ORGANIC ✦ 7G PROTEIN ✦ 6G FIBER ✦ NON-GMO ✦ VEGAN ✦ GLUTEN FREE ✦ SEED OIL FREE ✦</span>
+  </div>
+</div>
+
+<!-- POSITIONING -->
+<section class="positioning">
+  <div class="wrap">
+    <div class="label">01 · POSITIONING</div>
+    <div class="grid">
+      <h2>Real snacks.<br/>Read the label twice.</h2>
+      <div class="body">
+        <p>
+          Most "healthy" snacks lean on filler oils and ingredient lists you have to translate.
+          Crackl flips that — chickpeas, real flavor, certified clean. Nothing borrowed from the lab.
+        </p>
+        <p>
+          Three flavors. One bag size for now, one trail-mix pouch for on-the-go. Built to live in
+          the snack drawer at home and the gym bag on the way out.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORIGIN STORY -->
+<section class="origin-section">
+  <div class="wrap">
+    <div class="label light">02 · ORIGIN STORY</div>
+    <h2>Built in a classroom.<br/><span class="accent">Engineered for the snack aisle.</span></h2>
+
+    <div class="origin-grid">
+      <div class="body">
+        <p>
+          Crackl wasn't dreamed up in a hummus-loving home kitchen. It was engineered.
+          Two brothers met in their university's Senior Design capstone — the most demanding
+          real-world challenge of their undergraduate careers — and walked away with the
+          <strong>Best Senior Design Project</strong> in the entire graduating cohort.
+        </p>
+        <p>
+          That experience didn't just earn them a degree. It taught them how to <strong>build something
+          from nothing</strong>: how to identify a problem, engineer a solution, iterate relentlessly,
+          and ship. Eighteen months later they reconnected with their professor — now a co-founder —
+          and a new project was born. Not a mechanical system this time. A brand.
+        </p>
+        <p>
+          And the story keeps writing itself. For Crackl's launch, the founding team is <strong>sponsoring
+          a Senior Design project in the very same class</strong> where it all started. Next year's
+          engineering students will work on a real challenge connected to Crackl, and the brand's
+          origin becomes a living, growing narrative.
+        </p>
+      </div>
+
+      <div class="quote-card">
+        <div class="pin">◯ THE FIVE PILLARS</div>
+        <div class="quote">
+          Real founders. Real origin. Real ingredients. No corporate veneer.
+        </div>
+        <div class="pillars">
+          <div class="pillar">
+            <div class="name">Energetic</div>
+            <div class="desc">Built for people on the move</div>
+          </div>
+          <div class="pillar">
+            <div class="name">Precise</div>
+            <div class="desc">Engineered flavor, not accidental</div>
+          </div>
+          <div class="pillar">
+            <div class="name">Authentic</div>
+            <div class="desc">No marketing-department story</div>
+          </div>
+          <div class="pillar">
+            <div class="name">Challenger</div>
+            <div class="desc">The chickpea's overdue moment</div>
+          </div>
+          <div class="pillar">
+            <div class="name">Community</div>
+            <div class="desc">Academic roots, mentorship loop</div>
+          </div>
+          <div class="pillar">
+            <div class="name">Engineered</div>
+            <div class="desc">Discipline in every batch</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORDMARK -->
+<section class="wordmark-section">
+  <div class="wrap">
+    <div class="label">03 · WORDMARK</div>
+    <div class="grid">
+      <div>
+        <h2>Built to be read<br/>across a grocery aisle.</h2>
+        <p class="body">
+          The wordmark is set in Fredoka, a chunky rounded sans with friendly terminals.
+          The dropped "e" in "Crackl" turns the missing letter into a brand signature — and
+          shortens the syllable to a sharp, percussive bite. The period locks it down as a
+          confident statement.
+        </p>
+      </div>
+      <div class="logos">
+        <div class="logo-big-1">Crackl<span class="accent">.</span></div>
+        <div class="logo-mid">Crackl.</div>
+        <div class="logo-pill">Crackl.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PALETTE -->
+<section class="palette-section">
+  <div class="wrap">
+    <div class="label">04 · COLOR SYSTEM</div>
+    <div class="palette-grid">
+      <div class="swatch">
+        <div class="chip bordered" style="background:#FAF5EC"></div>
+        <div class="name">Cream</div>
+        <div class="hex">#FAF5EC</div>
+        <div class="role">Base / canvas</div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#1F1A17"></div>
+        <div class="name">Char</div>
+        <div class="hex">#1F1A17</div>
+        <div class="role">Wordmark / type</div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#C84B1F"></div>
+        <div class="name">BBQ</div>
+        <div class="hex">#C84B1F</div>
+        <div class="role">Flavor 01</div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#DC3545"></div>
+        <div class="name">Spicy</div>
+        <div class="hex">#DC3545</div>
+        <div class="role">Flavor 02</div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#3F8AAB"></div>
+        <div class="name">Sea Salt</div>
+        <div class="hex">#3F8AAB</div>
+        <div class="role">Flavor 03</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TYPOGRAPHY -->
+<section class="type-section">
+  <div class="wrap">
+    <div class="label">05 · TYPOGRAPHY</div>
+    <div class="type-grid">
+      <div class="type-card">
+        <div class="caption">DISPLAY</div>
+        <div class="fred display">Fredoka</div>
+        <div class="fred sample" style="font-weight:500">Aa Bb Cc 123</div>
+        <div class="desc">Wordmark, headlines, flavor names. SemiBold for product, Bold for the logo.</div>
+      </div>
+      <div class="type-card">
+        <div class="caption">BODY</div>
+        <div class="display" style="font-weight:500">Hanken</div>
+        <div class="sample">Aa Bb Cc 123</div>
+        <div class="desc">Body copy, descriptors, ingredient lists. Friendly geometric sans with workhorse legibility.</div>
+      </div>
+      <div class="type-card">
+        <div class="caption">UTILITY</div>
+        <div class="mono display">DM Mono</div>
+        <div class="mono sample">AA BB CC 123</div>
+        <div class="desc">Certifications, callouts, nutritional specs, tagline punctuation. All caps with letterspacing.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLAVORS -->
+<section class="flavor-section">
+  <div class="wrap">
+    <div class="label">06 · FLAVOR SYSTEM</div>
+  </div>
+  <div class="flavor-grid">
+    <button class="flavor-card active" data-flavor="bbq">
+      <div class="num">01</div>
+      <div class="big">BBQ</div>
+      <div class="desc">Smoke. Sweet. Crackl.</div>
+      <div class="notes">SMOKED PAPRIKA · BROWN SUGAR · HICKORY SALT</div>
+      <div class="pill">◉ SELECTED</div>
+    </button>
+    <button class="flavor-card" data-flavor="spicy">
+      <div class="num">02</div>
+      <div class="big">SPICY</div>
+      <div class="desc">Heat that bites back.</div>
+      <div class="notes">CAYENNE · CHIPOTLE · LIME · SEA SALT</div>
+      <div class="pill">◯ TAP TO SELECT</div>
+    </button>
+    <button class="flavor-card" data-flavor="seasalt">
+      <div class="num">03</div>
+      <div class="big">SEA SALT</div>
+      <div class="desc">Clean. Crisp. Classic.</div>
+      <div class="notes">FLAKE SEA SALT. NOTHING ELSE.</div>
+      <div class="pill">◯ TAP TO SELECT</div>
+    </button>
+  </div>
+</section>
+
+<!-- MARKETING ANGLES -->
+<section class="angles-section">
+  <div class="wrap">
+    <div class="label">07 · MARKETING ANGLES</div>
+    <div class="head">
+      <h2>Six stories.<br/>One <span class="accent">brand.</span></h2>
+      <p class="intro">
+        Crackl's narrative isn't one-note. Each angle below opens a different door —
+        engineering credibility, mentorship-as-marketing, the underdog chickpea, the wellness aisle.
+        Pick the one that fits the channel and run.
+      </p>
+    </div>
+
+    <div class="angles-grid">
+      <div class="angle-card">
+        <div class="num">01 · ORIGIN</div>
+        <div class="name">Engineered to <span class="italic">Crunch.</span></div>
+        <div class="copy">
+          Most snack brands trace their story to a kitchen. Crackl traces its to a Best-in-Class
+          capstone, a professor-turned-partner, and an engineering mindset applied to roasting.
+        </div>
+        <div class="campaign">
+          <div class="lbl">CAMPAIGN</div>
+          <div class="name-c">Why does Crackl hit different? We ran the numbers.</div>
+        </div>
+      </div>
+
+      <div class="angle-card">
+        <div class="num">02 · MENTORSHIP</div>
+        <div class="name">The <span class="italic">Loop.</span></div>
+        <div class="copy">
+          The founders are sponsoring a Senior Design project in the same class that launched them.
+          Document the student team in real time. Earned media gold with the university comms office.
+        </div>
+        <div class="campaign">
+          <div class="lbl">CAMPAIGN</div>
+          <div class="name-c">Same classroom. Next chapter.</div>
+        </div>
+      </div>
+
+      <div class="angle-card">
+        <div class="num">03 · BETTER-FOR-YOU</div>
+        <div class="name">No Compromise <span class="italic">Crunch.</span></div>
+        <div class="copy">
+          Punchy nutritional graphics comparing Crackl to traditional chips and pretzels. Target
+          fitness, college, and health-conscious-parent communities. Same crunch. Better fuel.
+        </div>
+        <div class="campaign">
+          <div class="lbl">CAMPAIGN</div>
+          <div class="name-c">Same crunch. Better fuel.</div>
+        </div>
+      </div>
+
+      <div class="angle-card">
+        <div class="num">04 · UNDERDOG</div>
+        <div class="name">Finally, the chickpea's <span class="italic">moment.</span></div>
+        <div class="copy">
+          Chickpeas have lived in the shadow of potato chips for decades. Lean into the underdog
+          narrative with humor and self-awareness. Retro creative that mocks chip industry hegemony.
+          Built for Gen Z irreverence.
+        </div>
+        <div class="campaign">
+          <div class="lbl">CAMPAIGN</div>
+          <div class="name-c">You've been sleeping on the chickpea. We fixed that.</div>
+        </div>
+      </div>
+
+      <div class="angle-card">
+        <div class="num">05 · COMMUNITY</div>
+        <div class="name">Crackl <span class="italic">Insiders.</span></div>
+        <div class="copy">
+          Building in public. A founding-customer community with flavor votes, packaging input,
+          and behind-the-scenes access to the student project. Early adopters become co-creators,
+          not consumers.
+        </div>
+        <div class="campaign">
+          <div class="lbl">CAMPAIGN</div>
+          <div class="name-c">Help us build the snack we wish existed.</div>
+        </div>
+      </div>
+
+      <div class="angle-card">
+        <div class="num">06 · STEM-TO-STARTUP</div>
+        <div class="name">What engineers <span class="italic">eat.</span></div>
+        <div class="copy">
+          Cultural moment: technical founders building consumer brands. Pitch to STEM-adjacent
+          press, university alumni publications, and entrepreneurship podcasts. Founder-led video
+          on roasting profile engineering.
+        </div>
+        <div class="campaign">
+          <div class="lbl">CAMPAIGN</div>
+          <div class="name-c">How a roast becomes a recipe becomes a brand.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN DIRECTIONS -->
+<section class="directions">
+  <div class="wrap">
+    <div class="label">08 · DESIGN DIRECTIONS</div>
+    <div class="head">
+      <h2>Six ways to wear<br/>the same brand.</h2>
+      <p class="intro">
+        Each variation pulls a different typographic lever — vertical stacks, mega-bold,
+        angles, stencils, split fields — while holding the same color system and wordmark.
+        Tap the toggle on any card to flip between the 5oz hero bag and the 1oz travel stick.
+      </p>
+    </div>
+    <div class="v-grid" id="variations-grid"></div>
+  </div>
+</section>
+
+<!-- RODEO-INSPIRED SYSTEM -->
+<section class="directions" style="padding-top: 0;">
+  <div class="wrap">
+    <div class="label">09 · RODEO-INSPIRED SYSTEM</div>
+    <div class="head">
+      <h2>The other<br/>direction.</h2>
+      <p class="intro">
+        Inspired by Rodeo Snacks' design DNA — cream upper + colored bottom field, mixed serif/sans
+        typography, playful sticker badges. The six finalists range from heritage-rustic to
+        sticker-pop bold, with one keeping the scallop motif and the rest going clean.
+      </p>
+    </div>
+    <div class="v-grid" id="variations-rodeo-grid"></div>
+  </div>
+</section>
+
+<!-- WHOLESALE SOURCING -->
+<section class="sourcing-section">
+  <div class="wrap">
+    <div class="label light">10 · WHOLESALE SOURCING</div>
+    <h2>Supplier <span class="accent">shortlist.</span></h2>
+    <p class="intro">
+      Working board of chickpea (current SKU) and edamame (next SKU) wholesale suppliers across
+      California, the broader US, and international IQF processors. Tap any yellow cell to enter
+      pricing, MOQ, lead time, or phone numbers — edits save automatically in your browser.
+    </p>
+
+    <div class="table-meta">
+      <div class="legend">
+        <span><span class="dot locked"></span>LOCKED — RESEARCH DATA</span>
+        <span><span class="dot"></span>EDITABLE — FILLS IN AS YOU CALL</span>
+      </div>
+      <button class="reset-btn" onclick="resetSupplierTable()">↻ RESET ALL EDITS</button>
+    </div>
+
+    <div class="table-wrap">
+      <table class="supplier-table" id="supplier-table">
+        <thead>
+          <tr>
+            <th>Supplier</th>
+            <th>Location</th>
+            <th>Phone<span class="editable-mark">◯</span></th>
+            <th>Price / lb<span class="editable-mark">◯</span></th>
+            <th>MOQ<span class="editable-mark">◯</span></th>
+            <th>Lead Time<span class="editable-mark">◯</span></th>
+            <th>Notes<span class="editable-mark">◯</span></th>
+          </tr>
+        </thead>
+        <tbody id="supplier-tbody"><!-- populated by JS --></tbody>
+      </table>
+    </div>
+
+    <div class="save-indicator" id="save-indicator">SAVED ◯</div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section class="numbers-section">
+  <div class="wrap">
+    <div class="label">11 · THE NUMBERS</div>
+    <div class="numbers-grid">
+      <div class="number-card">
+        <div class="fred big">7G</div>
+        <div class="fred lab">PROTEIN</div>
+        <div class="sub">PER 1OZ SERVING</div>
+      </div>
+      <div class="number-card">
+        <div class="fred big">6G</div>
+        <div class="fred lab">FIBER</div>
+        <div class="sub">PER 1OZ SERVING</div>
+      </div>
+      <div class="number-card">
+        <div class="fred big">0</div>
+        <div class="fred lab">SEED OILS</div>
+        <div class="sub">NONE. EVER.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="big">Crackl<span class="dot">.</span></div>
+    <div class="row">
+      <div class="left">
+        <div class="meta">EAT·CRACKL·COM</div>
+        <div class="tag" id="footer-tagline">Snack with a Crackl.</div>
+      </div>
+      <div class="right">© CRACKL FOODS · BRAND PITCH V1</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const FLAVORS = {
+    bbq:      { name: 'BBQ',      color: '#C84B1F', light: '#E8704A', deep: '#9A3914', desc: 'Smoke. Sweet. Crackl.',     notes: 'SMOKED PAPRIKA · BROWN SUGAR · HICKORY SALT' },
+    spicy:    { name: 'SPICY',    color: '#DC3545', light: '#F25C6B', deep: '#A8242F', desc: 'Heat that bites back.',     notes: 'CAYENNE · CHIPOTLE · LIME · SEA SALT' },
+    seasalt:  { name: 'SEA SALT', color: '#3F8AAB', light: '#7BB5CE', deep: '#2A627C', desc: 'Clean. Crisp. Classic.',    notes: 'FLAKE SEA SALT. NOTHING ELSE.' }
+  };
+
+  // Placeholder for pending 1oz renders
+  const PENDING_1OZ = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"><rect width="600" height="400" fill="#FAF5EC"/><g transform="translate(300,170)"><circle cx="0" cy="0" r="48" fill="none" stroke="#1F1A17" stroke-width="2" opacity="0.18"/><text x="0" y="6" text-anchor="middle" font-family="Fredoka" font-weight="700" font-size="24" fill="#1F1A17">1OZ</text></g><text x="300" y="248" text-anchor="middle" font-family="Fredoka" font-size="22" font-weight="600" fill="#1F1A17" letter-spacing="-0.5">Travel Variant</text><text x="300" y="278" text-anchor="middle" font-family="monospace" font-size="10" letter-spacing="2" fill="#1F1A17" opacity="0.45">RENDER PENDING</text></svg>`);
+
+  const VARIATIONS = [
+    { code: 'V · 11', name: 'Type-Forward',   tag: 'Massive flavor name dominates 60% of the bag with a single photoreal chickpea below. The most editorial of the set.',                  imgLarge: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_165822_6e6f5e1d-3baf-45e0-aa41-95bcfdebf51f.png', imgSmall: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_194239_66e74667-45c1-4fb9-828d-fea41e90b6a2.png' },
+    { code: 'V · A',  name: 'Vertical Stack', tag: 'Letters stacked one per line, filling the full vertical axis of the bag. Strongest fit for tall pouch formats.',                            imgLarge: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_170035_0fdc2d57-f36b-40d1-9a41-5f7506dacf2c.png', imgSmall: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_194254_9b0f62d1-4659-455b-b7c4-1dd1ce58be05.png' },
+    { code: 'V · C',  name: 'Mega Bold',      tag: 'Ultra-heavy letters with negative kerning — letters almost touching. Maximum shelf presence. Omsom-adjacent.',                               imgLarge: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_170056_aef11a23-8d87-4cad-ab5a-86b0180807c5.png', imgSmall: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_194311_12db54d8-5cfb-441e-92e9-3c59c20c4722.png' },
+    { code: 'V · E',  name: 'Two-Tone Split', tag: 'Bag splits horizontally into cream and flavor zones, with the type bridging both. Most ownable graphic system.',                            imgLarge: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_170116_af9c3980-a0f7-4314-a57c-9e7a7ce2ac8f.png', imgSmall: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_194327_f3fc7e30-dfde-4cdb-acc5-9ab548fa4b1f.png' },
+    { code: 'V · H',  name: 'Angled',         tag: 'Flavor name rotated 25–35° for kinetic energy. Most "in-motion" of the set.',                                                                imgLarge: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_170145_fc0841a1-787a-4136-aefb-603a57822e24.png', imgSmall: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_194342_5b0d5bf3-8207-4e0f-860b-5b3ef6fdb3ca.png' },
+    { code: 'V · J',  name: 'Stencil',        tag: 'Stencil-cut letterforms with batch-number callouts. Craft-brewery / specialty-coffee energy applied to snacks.',                              imgLarge: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_170206_87adddbb-83a2-4729-8d90-6068585601df.png', imgSmall: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_194359_8cf1fdad-1237-4d13-b713-43db105ebc8f.png' }
+  ];
+
+  // ---------- Render variations grid ----------
+  function buildCard(v) {
+    const small = v.imgSmall || PENDING_1OZ;
+    const card = document.createElement('div');
+    card.className = 'v-card';
+    card.innerHTML = `
+      <div class="v-frame">
+        <div class="size-toggle" data-toggle>
+          <button data-size="large" class="active">5OZ</button>
+          <button data-size="small">1OZ</button>
+        </div>
+        <img src="${v.imgLarge}" data-large="${v.imgLarge}" data-small="${small}" alt="${v.name}" loading="lazy" />
+      </div>
+      <div class="v-meta">
+        <div class="v-code">${v.code}</div>
+        <div class="v-name fred">${v.name}</div>
+        <div class="v-tag">${v.tag}</div>
+      </div>
+    `;
+    // Wire up toggle
+    const toggle = card.querySelector('[data-toggle]');
+    const img = card.querySelector('img');
+    toggle.addEventListener('click', (e) => {
+      const btn = e.target.closest('button[data-size]');
+      if (!btn) return;
+      const size = btn.dataset.size;
+      toggle.querySelectorAll('button').forEach(b => b.classList.toggle('active', b === btn));
+      img.classList.add('fade-out');
+      setTimeout(() => {
+        img.src = size === 'small' ? img.dataset.small : img.dataset.large;
+        img.classList.remove('fade-out');
+      }, 180);
+    });
+    return card;
+  }
+
+  const vGrid = document.getElementById('variations-grid');
+  VARIATIONS.forEach(v => vGrid.appendChild(buildCard(v)));
+
+  // ---------- Rodeo-inspired variations ----------
+  const VARIATIONS_RODEO = [
+    { code: 'R · 02', name: 'Flavor-Tinted Blob',  tag: "Bottom blob takes the flavor color instead of yellow. Strongest line clarity from across an aisle.",          imgLarge: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_184717_a5b1ace3-a769-4274-93e2-d453afaf3b7c.png', imgSmall: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260524_234348_3c024ad6-2dd1-4b1a-a2b6-f345805a88a7.png' },
+    { code: 'R · 04', name: 'Heritage Rustic',     tag: "Earthier desaturated palette with kraft-paper texture. Gift-able, dinner-party premium.",                       imgLarge: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_184741_4ede1373-657f-4950-ae73-87089de7f588.png', imgSmall: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260524_234319_0dc90f6c-dff2-434a-93d9-b44a691e6acc.png' },
+    { code: 'R · 05', name: 'Photo-Dominant',      tag: "Design recedes, chickpea photography dominates. Each flavor visually coated to match.",                          imgLarge: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_184753_e3d10b8c-a5e7-4ef9-a52e-b22277617e7f.png', imgSmall: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260524_234250_6103f9ee-dd79-4e4d-8075-10640a174701.png' },
+    { code: 'R · 07', name: 'Modernist',           tag: "Smooth curved color zone (no scallops). Pipe (|) dividers. Rectangular protein badge. Most editorial.",          imgLarge: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_185043_d48e1fe5-0f15-48ac-bbc3-4659556b3518.png', imgSmall: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260524_234224_364468fb-b011-4a78-ae78-8d218af8afd9.png' },
+    { code: 'R · 09', name: 'Bar-Stripe',          tag: "Clean horizontal flavor stripe through the middle. Bullet (•) dividers. Most architectural / system-driven.",   imgLarge: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_185107_db4225d5-e33c-4044-abba-2b53c32dc918.png', imgSmall: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260524_234204_a5789cf9-d169-441f-bd14-06834a155227.png' },
+    { code: 'R · 10', name: 'Sticker Pop',         tag: "Cream + smooth arc. Pill-shaped callout bar with slash separators. Hexagonal sticker badge. Boldest.",            imgLarge: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_185120_0cca4a66-098a-41c7-a446-8a07cc34c21e.png', imgSmall: 'https://d8j0ntlcm91z4.cloudfront.net/user_3E8I1emP258XzhJhqIfNUZLZ7xb/hf_20260523_194554_b4500e55-0042-44e5-a216-2ebea26d0caa.png' }
+  ];
+
+  const rGrid = document.getElementById('variations-rodeo-grid');
+  VARIATIONS_RODEO.forEach(v => rGrid.appendChild(buildCard(v)));
+
+  // ---------- State (flavor color accent only) ----------
+  const state = { flavor: 'bbq' };
+
+  function render() {
+    const f = FLAVORS[state.flavor];
+    document.documentElement.style.setProperty('--flavor', f.color);
+    document.documentElement.style.setProperty('--flavor-light', f.light);
+    document.documentElement.style.setProperty('--flavor-deep', f.deep);
+
+    document.querySelectorAll('.flavor-card').forEach(card => {
+      const active = card.dataset.flavor === state.flavor;
+      card.classList.toggle('active', active);
+      const pill = card.querySelector('.pill');
+      if (pill) pill.textContent = active ? '◉ SELECTED' : '◯ TAP TO SELECT';
+    });
+  }
+
+  // ---------- Wire up events ----------
+  document.querySelectorAll('.flavor-card').forEach(card => {
+    card.addEventListener('click', () => { state.flavor = card.dataset.flavor; render(); });
+  });
+
+  // ============================================================
+  // SUPPLIER TABLE — editable cells with localStorage persistence
+  // ============================================================
+  const SUPPLIERS = {
+    chickpea: [
+      { id: 'cp-01', name: 'Cal-Bean and Grain Cooperative',  loc: 'Tulare County, CA',  meta: 'KABULI GARBANZOS · TOP REC' },
+      { id: 'cp-02', name: 'Rhodes Stockton Bean Coop',       loc: 'Stockton, CA',        meta: 'CONTACT: LARRY KUBO' },
+      { id: 'cp-03', name: 'Tarke Bean LLC',                  loc: 'Northern CA',         meta: 'CONTACT: DENISE DOLLINS' },
+      { id: 'cp-04', name: 'Pacific Grain and Foods',         loc: 'Fresno, CA',          meta: 'CONVENTIONAL + ORGANIC' },
+      { id: 'cp-05', name: 'CA Dry Bean Advisory Board',      loc: 'Fresno, CA',          meta: 'INDUSTRY ROUTING · NATHAN SANO' },
+      { id: 'cp-06', name: 'SunOrganic Farm',                 loc: 'San Marcos, CA',      meta: 'CERTIFIED ORGANIC' },
+      { id: 'cp-07', name: 'Hummingbird Wholesale',           loc: 'Eugene, OR',          meta: 'CERTIFIED ORGANIC' }
+    ],
+    edamame: [
+      { id: 'ed-01', name: 'RDM International',               loc: 'USA',                 meta: 'IQF FROZEN · CONV + ORG' },
+      { id: 'ed-02', name: 'UNFI / Woodstock Farms',          loc: 'National (USA)',      meta: 'USDA ORG · NON-GMO PROJ' },
+      { id: 'ed-03', name: 'Frankferd Farms',                 loc: 'Saxonburg, PA',       meta: 'WOODSTOCK DISTRIBUTOR' },
+      { id: 'ed-04', name: 'Buy Nuts & More',                 loc: 'USA',                 meta: 'DRY-ROASTED SALTED · BULK' },
+      { id: 'ed-05', name: 'Arcade Snacks',                   loc: 'USA',                 meta: 'DRY-ROASTED · USA-MADE' },
+      { id: 'ed-06', name: 'Organically Grown Co. (OGC)',     loc: 'Eugene, OR',          meta: 'ORGANIC DISTRIBUTOR' },
+      { id: 'ed-07', name: 'Jooever Foods',                   loc: 'China',               meta: 'IQF · FOODSERVICE BULK' },
+      { id: 'ed-08', name: 'Xiamen Sinofrost',                loc: 'China',               meta: 'IQF · EXPORTS TO USA' },
+      { id: 'ed-09', name: 'KD Healthy Foods',                loc: 'China',               meta: 'IQF · 200+ US PARTNERS' },
+      { id: 'ed-10', name: 'Edamax',                          loc: 'International',       meta: 'IQF · PRIVATE LABEL' },
+      { id: 'ed-11', name: 'Gloria Frozen Food',              loc: 'Indonesia',           meta: 'IQF · CUSTOM LABELING' }
+    ]
+  };
+
+  const EDITABLE_FIELDS = ['phone', 'price', 'moq', 'lead', 'notes'];
+  const PLACEHOLDERS = {
+    phone: 'add phone',
+    price: '$ / lb',
+    moq:   'add MOQ',
+    lead:  'add lead time',
+    notes: 'add notes'
+  };
+  const STORAGE_KEY = 'crackl-supplier-edits-v1';
+
+  function loadEdits() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch (e) { return {}; }
+  }
+
+  function saveEdit(supplierId, field, value) {
+    try {
+      const edits = loadEdits();
+      edits[supplierId] = edits[supplierId] || {};
+      if (value && value.trim()) {
+        edits[supplierId][field] = value.trim();
+      } else {
+        delete edits[supplierId][field];
+        if (Object.keys(edits[supplierId]).length === 0) delete edits[supplierId];
+      }
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(edits));
+      flashSaveIndicator();
+    } catch (e) { /* localStorage may be disabled; edits won't persist */ }
+  }
+
+  let saveIndicatorTimer = null;
+  function flashSaveIndicator() {
+    const el = document.getElementById('save-indicator');
+    if (!el) return;
+    el.classList.add('show');
+    clearTimeout(saveIndicatorTimer);
+    saveIndicatorTimer = setTimeout(() => el.classList.remove('show'), 1200);
+  }
+
+  function buildSupplierRow(s, edits) {
+    const e = edits[s.id] || {};
+    return `
+      <tr data-supplier-id="${s.id}">
+        <td class="locked"><span class="name">${s.name}</span><span class="meta">${s.meta}</span></td>
+        <td class="locked">${s.loc}</td>
+        ${EDITABLE_FIELDS.map(field => {
+          const val = e[field] || '';
+          const hasValue = val ? 'has-value' : '';
+          return `<td><div class="editable ${hasValue}" contenteditable="true" data-field="${field}" data-placeholder="${PLACEHOLDERS[field]}" spellcheck="false">${val}</div></td>`;
+        }).join('')}
+      </tr>
+    `;
+  }
+
+  function renderSupplierTable() {
+    const tbody = document.getElementById('supplier-tbody');
+    if (!tbody) return;
+    const edits = loadEdits();
+    let html = '';
+    html += `<tr class="section-header"><td colspan="7">◯ Chickpea Suppliers · Current SKU</td></tr>`;
+    SUPPLIERS.chickpea.forEach(s => html += buildSupplierRow(s, edits));
+    html += `<tr class="section-header"><td colspan="7">◯ Edamame Suppliers · Next SKU</td></tr>`;
+    SUPPLIERS.edamame.forEach(s => html += buildSupplierRow(s, edits));
+    tbody.innerHTML = html;
+
+    // Wire up editable cells
+    tbody.querySelectorAll('.editable').forEach(cell => {
+      cell.addEventListener('input', () => {
+        const row = cell.closest('tr');
+        const id = row.dataset.supplierId;
+        const field = cell.dataset.field;
+        const value = cell.textContent;
+        cell.classList.toggle('has-value', !!value.trim());
+        saveEdit(id, field, value);
+      });
+      cell.addEventListener('paste', (e) => {
+        e.preventDefault();
+        const text = (e.clipboardData || window.clipboardData).getData('text');
+        document.execCommand('insertText', false, text);
+      });
+      cell.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') { e.preventDefault(); cell.blur(); }
+      });
+    });
+  }
+
+  window.resetSupplierTable = function() {
+    if (!confirm('Reset all supplier edits? This will clear every phone number, price, MOQ, and lead time you\'ve entered.')) return;
+    try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+    renderSupplierTable();
+  };
+
+  renderSupplierTable();
+
+  render();
+</script>
+</body>
+</html>
